@@ -1,4 +1,4 @@
 # Summary
 
-* [VcRedist](/VcRedist/SUMMARY.md)
-* [LatestUpdate](/LatestUpdate/SUPPORTED.md)
+* [VcRedist](./VcRedist/SUMMARY.md)
+* [LatestUpdate](./LatestUpdate/SUMMARY.md)
