@@ -1,4 +1,4 @@
-# Table of contents
+# Summary
 
-* [Initial page](README.md)
-
+* [VcRedist](/VcRedist/SUMMARY.md)
+* [LatestUpdate](/LatestUpdate/SUPPORTED.md)
