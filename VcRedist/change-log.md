@@ -1,5 +1,26 @@
 # Change log
 
+## v2.0.132
+
+- Simplify version semantics to major.minor.build
+- Add VcRedist `2019` to the manifest
+- Convert the manifest to JSON for easier management and simpler code
+- Update function `Get-VcList` to support JSON manifest format
+- Combine VcRedists into a single manifest
+- Rename `Get-VcRedist` to `Save-VcRedist`
+- Rename `Import-VcCmApp` to `Import-VcConfigMgrApplication`
+- Rename function `Export-VcXml` to `Export-VcManifest`
+- Rename `Import-VcMdtApp` to `Import-VcMdtApplication`
+- Split function `Import-VcMdtApplication` into `Import-VcMdtApplication`, `Update-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtBundle` to simplfy code and provide more robust functions
+- Update HelpUri property on each function
+- Update `Get-InstalledVcRedist` to export additional properties including `Release` and `Architecture`
+- Add private functions `New-MdtApplicationFolder`, `New-MdtDrive`
+- Update function `Get-VcList` with `-Export` parameter for `All, Supported, Unsupported`
+- Add ability to filter `Get-VcList` output with `-Release` and `-Architecture`
+- Fix pipeline support for `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication` to accept output from `Get-VcList` on the pipeline
+- Remove `-Release` and `-Architecture` parameters from `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication`. Use `Get-VcList` to filter for release and architecture instead
+- Update Pester tests for public and private functions
+
 ## v1.5.2.98
 
 - Update manifests with correct details for VcRedist 2017 `v14.16.27027.1`. v1.5.1.95 included the incorrect manifest commit.
