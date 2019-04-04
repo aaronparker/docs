@@ -1,4 +1,4 @@
-# Installing the Module
+# Install the Module
 
 ## Install from the PowerShell Gallery
 
