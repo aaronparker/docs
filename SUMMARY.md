@@ -4,7 +4,7 @@
     * [Supported Platforms](./VcRedist/supported.md)
     * [Install the Module](./VcRedist/install.md)
     * [Usage](./VcRedist/usage/README.md)
-        * [Get the VcRedist List](./VcRedist/usage/save-vcredist.md)
+        * [Get the VcRedist List](./VcRedist/usage/get-vcredist.md)
         * [Download the Redistributables](./VcRedist/usage/save-vcredist.md)
         * [Install the Redistributables](./VcRedist/usage/install-vcredist.md)
         * [Import Redistributables into MDT](./VcRedist/usage/import-vcmdtapplication.md)
