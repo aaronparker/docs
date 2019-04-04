@@ -17,7 +17,6 @@ To install the Visual C++ Redistributables as a part of a reference image or for
 * `AppFolder` - Imports the Visual C++ Redistributables into a sub-folder. Defaults to "VcRedists"
 * `MdtDrive` - The drive letter that will be mapped to the MDT deployment share. Not required and defaults to "DS001"
 * `Publisher` - The publisher that will be assigned to the Visual C++ Redistributables bundle. Not required and defaults to "Microsoft"
-* `BundleName` - The bundle short name assigned to the Visual C++ Redistributables bundle. Not required and defaults to "Visual C++ Redistributables"
 * `Language` - The language assigned to the Visual C++ Redistributables bundle. Defaults to "en-US"
 
 ## Examples
