@@ -8,7 +8,7 @@
         * [Download the Redistributables](./VcRedist/usage/save-vcredist.md)
         * [Install the Redistributables](./VcRedist/usage/install-vcredist.md)
         * [Import Redistributables into MDT](./VcRedist/usage/import-vcmdtapplication.md)
-        * [Create a Redistributables bundle in MDT](./VcRedist/usage/Redistributables/new-vcmdtbundle.md)
+        * [Create a Redistributables bundle in MDT](./VcRedist/usage/new-vcmdtbundle.md)
         * [Import Redistributables into ConfigMgr](./VcRedist/usage/import-vcconfigmgrapplication.md)
         * [Get the Installed Redistributables](./VcRedist/usage/get-installedvcredist.md)
         * [Export the Manifests](./VcRedist/usage/export-vcmanifest.md)
