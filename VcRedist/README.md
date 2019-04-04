@@ -1,12 +1,12 @@
 # Introduction
 
-VcRedist is a PowerShell module for downloading and installing the [Microsoft Visual C++ Redistributables](https://support.microsoft.com/en-au/help/2977003/the-latest-supported-visual-c-downloads).
+VcRedist is a PowerShell module for managing the lifecycle of the [Microsoft Visual C++ Redistributables](https://support.microsoft.com/en-au/help/2977003/the-latest-supported-visual-c-downloads).
 
-The module enables the download of the Redistributables for installing locally, or creating applications in the Microsoft Deployment Toolkit and System Center Configuration Manager to install the Redistributables for reference images or operating system deployments. All downloads are directly from Microsoft and are therefore only from a trusted source.
+The module enables the download of the Redistributables for installing locally, or creating applications in the Microsoft Deployment Toolkit and System Center Configuration Manager to install the Redistributables for reference images or operating system deployments. All downloads are direct from the Microsoft Downloads site and are therefore only from a trusted source.
 
 ## Why
 
-The Microsoft Visual C++ Redistributables are a core component of any Windows desktop deployment (physical PCs or virtual desktop environments). Multiple versions are commonly deployed to support various applications, thus they need to be imported into your deployment solution or installed locally, which can be time consuming. The aim of this module is to simplify obtaining current versions of the Redistributables and to speed deployments.
+The Microsoft Visual C++ Redistributables are a core component of any Windows desktop deployment (physical PCs or virtual desktops). Multiple versions are commonly deployed to support various applications, thus they need to be imported into your deployment solution or installed locally. The aim of this module is to simplify obtaining, deploying an updating to the current versions of the Redistributables.
 
 ### Supported vs. Unsupported Redistributables
 
