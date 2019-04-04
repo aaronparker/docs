@@ -1,6 +1,8 @@
 # Import Redistributables into ConfigMgr
 
-To install the Visual C++ Redistributables with System Center Configuration Manager, `Import-VcConfigMgrApplication` will import each of the Visual C++ Redistributables as a separate application that includes the application and a single deployment type. Visual C++ Redistributables can be filtered for release and processor architecture.
+To install the Visual C++ Redistributables with System Center Configuration Manager, `Import-VcConfigMgrApplication` will import each of the Visual C++ Redistributables as a separate application that includes the application and a single deployment type.
+
+Visual C++ Redistributables can be filtered for release and processor architecture by `Get-VcList` before passing to `Import-VcConfigMgrApplication`.
 
 ## Parameters
 
