@@ -16,6 +16,12 @@ Architecture         : x64
 Release              : 2019
 ```
 
+## Parameters
+
+### Optional parameters
+
+* `ExportAll` - Export all installed Redistributables including the Additional and Minimum Runtimes typically hidden from Programs and Features
+
 ## Examples
 
 The following command will return the list of installed Redistributables:

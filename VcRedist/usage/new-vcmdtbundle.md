@@ -1,30 +1,25 @@
-# Import Redistributables into MDT
+# Create a Redistributables bundle in MDT
 
-To install the Visual C++ Redistributables as a part of a reference image or for use with a deployment solution based on the Microsoft Deployment Toolkit, `Import-VcMdtApp` will import each of the Visual C++ Redistributables as a separate application that includes silent command lines, platform support and the UninstallKey for detecting whether the Visual C++ Redistributable is already installed. Visual C++ Redistributables can be filtered for release and processor architecture.
+Once the Visual C++ Redistributables have been imported into a MDT deployment share, they will be available as individual applications that can be added to a task sequence. To simplify selection of the Redistributables, they can be added to an application bundle. A bundle is an application in the MDT share that does not install applications itself, but includes other applications as dependencies. Thus a bundle can install a set of applications in a specific order using a single action in a task sequence.
 
-```powershell
-$VcList = Get-VcList
-Import-VcMdtApp -VcList $VcList -Path C:\Temp\VcRedist -MdtPath \\server\deployment
-```
+## Parameters
 
-Each Redistributables will be imported into the deployment share with application properties for a successful deployment.
+### Required parameters
 
-![Microsoft Visual C++ Redistributables applications imported into an MDT share](https://raw.githubusercontent.com/aaronparker/docs/master/images/MdtVisualCApplications.png)
+* `MdtPath` - the local or network path to the MDT deployment share
 
-The folder structure in the deployment share, will look thus:
+### Optional parameters
 
-![Visual C++ Redistributables in the deployment share Application folder](https://raw.githubusercontent.com/aaronparker/docs/master/images/MdtVisualCApplicationsFolder.PNG)
+* `AppFolder` - imports the Visual C++ Redistributables into a sub-folder. Defaults to "VcRedists"
+* `MdtDrive` - the drive letter that will be mapped to the MDT deployment share. Not required and defaults to "DS001"
+* `Publisher` - the publisher that will be assigned to the Visual C++ Redistributables bundle. Not required and defaults to "Microsoft"
+* `BundleName` - the bundle short name assigned to the Visual C++ Redistributables bundle. Not required and defaults to "Visual C++ Redistributables"
+* `Language` - defaults to "en-US"
 
-An option is provided to an Application Bundle with the `-Bundle` switch. This will import all of the Redistributables and create a single Application Bundle with the Redistributables as dependencies. If specified, the `-Bundle` switch will hide the Redistributables, leaving on the bundle visible in the Deployment Wizard.
+## Examples
 
-```powershell
-$VcList = Get-VcList
-Import-VcMdtApp -VcList $VcList -Path C:\Temp\VcRedist -MdtPath \\server\deployment -Bundle
-```
-
-The install command line arguments used by default are passive. Fully silent install command line arguments can be specified with the `-Silent` parameter when importing the applications into an MDT deployment share.
+To create the bundle in the target deployment share, run `New-VcMdtBundle`. This function will scan for the Visual C++ Redistributables in the default application folder (VcRedists) and create a bundle with each Redistributable application as a dependency in order from oldest to newest Redistributable.
 
 ```powershell
-$VcList = Get-VcList
-Import-VcMdtApp -VcList $VcList -Path C:\Temp\VcRedist -MdtPath \\server\deployment -Bundle -Silent
+New-VcMdtBundle -MdtPath \\server\deployment
 ```

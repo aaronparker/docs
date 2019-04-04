@@ -4,6 +4,17 @@ To install the Visual C++ Redistributables on the local machine, use `Install-Vc
 
 `Install-VcRedist` supports both passive installs (default) or silent installs with the `-Silent` parameter.
 
+## Parameters
+
+### Required parameters
+
+* `VcList` - An array containing details of the Visual C++ Redistributables from `Get-VcList`
+* `Path` - A folder containing the downloaded Visual C++ Redistributables downloaded with `Save-VcList`
+
+### Optional parameters
+
+* `Silent` - Configures the MDT application quiet install command to be completely silent instead of using the default passive install command line
+
 ## Examples
 
 The following command will install the Visual C++ Redistributables already downloaded locally with `Save-VcRedist` to C:\Temp\VcRedist.

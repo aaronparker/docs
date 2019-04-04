@@ -43,6 +43,15 @@ SilentInstall : /install /quiet /norestart
 
 Output from `Get-VcList` can be piped to `Save-VcRedist`, `Install-VcRedist`, `Import-VcMdtApplication`, `Update-VcMdtApplication`, `Import-VcConfigMgrApplication` and `Update-VcConfigMgrApplication`. Additionally, output from `Get-VcList` can be filtered using `Where-Object`. This approach is useful where you want to export the full list of Redistributables but filter for specific processor architectures.
 
+## Parameters
+
+### Optional parameters
+
+* `Manifest` - The JSON file that contains the details about the Visual C++ Redistributables. This must be in the expected format
+* `Export` - Defines the list of Visual C++ Redistributables to export - All, Supported or Unsupported Redistributables. Defaults to exporting the Supported Redistributables.
+* `Release` - Specifies the release (or version) of the redistributables to return (e.g. 2019, 2010, 2012, etc.)
+* `Architecture` - Specifies the processor architecture to of the redistributables to return. Can be x86 or x64
+
 ## Filtering Output
 
 The output from `Get-VcList` can be filtered before sending to other functions. `Get-VcList` has the `-Release` parameter for filtering on the 2005, 2008, 2010, 2012, 2013, 2015, 2017 and 2019 releases of the Redistributables. Additionally, the `-Architecture` parameter can filter on x86 and x64 processor architectures.
