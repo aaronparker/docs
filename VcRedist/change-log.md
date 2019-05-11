@@ -1,5 +1,10 @@
 # Change log
 
+## v2.0.138
+
+- Fixed issue [#45 Blank Dependency entry on Apps imported from Import-VcMdtApplication](https://github.com/aaronparker/VcRedist/issues/45)
+- Fixing issue when importing VcRedists into ConfigMgr [#47](https://github.com/aaronparker/VcRedist/issues/47)
+
 ## v2.0.132
 
 - Simplify version semantics to major.minor.build
