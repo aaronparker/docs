@@ -1,5 +1,9 @@
 # Change log
 
+## v2.0.140
+
+- Update the manifest for VcRedist `2019` version `14.21.27702.2` for Visual Studio 2019 16.1
+
 ## v2.0.138
 
 - Fixed issue [#45 Blank Dependency entry on Apps imported from Import-VcMdtApplication](https://github.com/aaronparker/VcRedist/issues/45)
