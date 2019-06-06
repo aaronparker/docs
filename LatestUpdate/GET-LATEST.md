@@ -1,96 +1,97 @@
-# Get the Latest Windows Cumulative or Monthly Rollup Updates
+# Get the Latest Windows 10 Cumulative
 
-`Get-LatestUpdate` retrieves the latest Cumulative update from the Windows 10 Update History page at [https://support.microsoft.com/en-au/help/4464619](https://support.microsoft.com/en-au/help/4464619). Run `Get-LatestUpdate` with no additional switches to return the latest update for the most recent Windows 10 build for all processor architectures.
+`Get-LatestCumulativeUpdate` retrieves the latest Cumulative update from the Windows 10 Update History page at [https://support.microsoft.com/en-au/help/4464619](https://support.microsoft.com/en-au/help/4464619). Run `Get-LatestCumulativeUpdate` with no additional switches to return the latest update for the most recent Windows 10 build for all processor architectures.
 
 ```powershell
-PS C:\> Get-LatestUpdate
+PS C:\> Get-LatestCumulativeUpdate
 ```
 
-This returns the most recent update for Windows 10 x86, x64 and ARM64 as well as Windows Server.
+This returns the most recent update for Windows 10 x86, x64 and ARM64 as well as Windows Server:
 
-## Operating System Support
+* Windows 10 Semi-annual Channel
+* Windows 10 Long Term Servicing Channel
+* Windows Server 2016
+* Windows Server 2019
+* Windows Server Semi-annual Channel
 
-Updates for the following operating systems can be returned:
+## Filtering for Windows versions
 
-* Windows 10 and Windows Server (including the available builds). Returns the latest Cumulative update for these versions of Windows.
-* Windows 8.1 and Windows Server 2012 R2. Returns the latest Monthly Rollup for these version of Windows.
-* Windows 7 and Windows Server 2008 R2. Returns the latest Monthly Rollup for these version of Windows.
+By default, updates for all Windows 10 and Windows Server versions are returned.
 
-### Filtering for Windows versions
+* `-Version`: use to specific the version of Windows 10 to search for updates
 
-Returning updates for specific versions, builds and processor architectures differs between Windows 10 and Windows 8.1/7. By default, updates for Windows 10 are returned.
-
-* `-WindowsVersion`: use to specific the version of Windows to search for updates. Windows10, Windows8 and Windows7
-* `-Build`: only applicable with '-WindowsVersion Windows10'. Specify a build number - '17763', '17134', '16299', '15063', '14393', '10586', '10240'.
+The `Version` parameter accepts the Windows 10 version numbers - `1903`, `1809`, `1803`, `1709`, `1703`, `1607`.
 
 ## Examples
-
-Additional examples of Get-LatestUpdate syntax include:
 
 Return the cumulative update for Windows 10 1607 and Windows Server 2016:
 
 ```powershell
-PS C:\> Get-LatestUpdate -WindowsVersion Windows10 -Build 14393
+PS C:\> Get-LatestCumulativeUpdate -Version 1607
 ```
 
 Return the cumulative update for latest release (Semi-Annual Channel) of Windows 10 and Windows Server:
 
 ```powershell
-PS C:\> Get-LatestUpdate -WindowsVersion Windows10
+PS C:\> Get-LatestCumulativeUpdate
 ```
 
 Return the cumulative update for latest release of Windows 10 and Windows Server 1709:
 
 ```powershell
-PS C:\> Get-LatestUpdate -WindowsVersion Windows10 -Build 16299
+PS C:\> Get-LatestCumulativeUpdate -Version 1709
 ```
 
 ## Output
 
-`Get-LatestUpdate | Format-Table` returns an array of available updates with KB article (KB), processor architecture (Arch), update description (Note) and the URL to the update itself (URL). An example output for Windows 10 is shown below.
+`Get-LatestCumulativeUpdate` returns an array of available updates with KB article (KB), processor architecture (Architecture), update description (Note) and the URL to the update itself (URL). An example output for Windows 10 is shown below.
 
 ```powershell
-KB        Arch  Version  Note                                                                                      URL
---        ----  -------  ----                                                                                      ---
-KB4480116 x64   1809     2019-01 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4480116)       http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x64_4c8672ed7ce1d839421a36c681f9d3f64c31fe37.msu
-KB4480116 ARM64 1809     2019-01 Cumulative Update for Windows 10 Version 1809 for ARM64-based Systems (KB4480116) http://download.windowsupdate.com/c/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-arm64_bacbad707cce6698fde3ffbb1daca2f555009e08.msu
-KB4480116 x86   1809     2019-01 Cumulative Update for Windows 10 Version 1809 for x86-based Systems (KB4480116)   http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x86_001457768574e3a4f0289c6a958d6680ee1fc90b.msu
-KB4480116 x64   1809     2019-01 Cumulative Update for Windows 10 Version 1809 for x64-based Systems (KB4480116)   http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x64_4c8672ed7ce1d839421a36c681f9d3f64c31fe37.msu
+KB           : KB4497935
+Note         : 2019-05 Cumulative Update for Windows 10 Version 1903 for x86-based Systems (KB4497935)
+URL          : http://download.windowsupdate.com/d/msdownload/update/software/updt/2019/05/windows10.0-kb4497935-x86_8cd569b78eb22e22e5cf5f32b471f170f410ff4f.msu
+Version      : 1903
+Architecture : x86
+
+KB           : KB4497935
+Note         : 2019-05 Cumulative Update for Windows Server, version 1903 for x64-based Systems (KB4497935)
+URL          : http://download.windowsupdate.com/c/msdownload/update/software/updt/2019/05/windows10.0-kb4497935-x64_e1e15758afc9d32ca57779428d145cfba3a12e4b.msu
+Version      : 1903
+Architecture : x64
+
+KB           : KB4497935
+Note         : 2019-05 Cumulative Update for Windows 10 Version 1903 for ARM64-based Systems (KB4497935)
+URL          : http://download.windowsupdate.com/c/msdownload/update/software/updt/2019/05/windows10.0-kb4497935-arm64_5be4eac50540b54074d4d7e58282f9c28f8472fd.msu
+Version      : 1903
+Architecture : ARM64
+
+KB           : KB4497935
+Note         : 2019-05 Cumulative Update for Windows 10 Version 1903 for x64-based Systems (KB4497935)
+URL          : http://download.windowsupdate.com/c/msdownload/update/software/updt/2019/05/windows10.0-kb4497935-x64_e1e15758afc9d32ca57779428d145cfba3a12e4b.msu
+Version      : 1903
+Architecture : x64
 ```
 
 ## Filter Output
 
-Output from `Get-LatestUpdate` can be filtered to find updates for a specific processor architecture or Windows version. For example, to filter for only the 32-bit version of Windows 10, use the following syntax:
+Output from `Get-LatestCumulativeUpdate` can be filtered to find updates for a specific processor architecture or Windows version. For example, to filter for only the 32-bit version of Windows 10, use the following syntax:
 
 ```powershell
-Get-LatestUpdate | Where-Object { $_.Arch -eq "x86" }
+Get-LatestCumulativeUpdate | Where-Object { $_.Architecture -eq "x86" }
 ```
 
 This will return output similar to the following:
 
 ```powershell
-KB        Arch  Version Note                                                                                         URL
---        ----  ------- ----                                                                                         ---
-KB4480116 x86   1809     2019-01 Cumulative Update for Windows 10 Version 1809 for x86-based Systems (KB4480116)   http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x86_001457768574e3a4f0289c6a958d6680ee1fc90b.msu
-```
-
-`Get-LatestUpdate` will return updates for both Windows 10 x64 and Windows Server 2016 / Windows Server 2019 / Windows Server Semi Annual Channel. In this case, output will look similar to the following, where two entires in the array will both point to the same update URL.
-
-```powershell
-KB        Arch  Version Note                                                                                         URL
---        ----  ------- ----                                                                                         ---
-KB4480116 x64   1809     2019-01 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4480116)       http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x64_4c8672ed7ce1d839421a36c681f9d3f64c31fe37.msu
-KB4480116 x64   1809     2019-01 Cumulative Update for Windows 10 Version 1809 for x64-based Systems (KB4480116)   http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/01/windows10.0-kb4480116-x64_4c8672ed7ce1d839421a36c681f9d3f64c31fe37.msu
+KB           : KB4497935
+Note         : 2019-05 Cumulative Update for Windows 10 Version 1903 for x86-based Systems (KB4497935)
+URL          : http://download.windowsupdate.com/d/msdownload/update/software/updt/2019/05/windows10.0-kb4497935-x86_8cd569b78eb22e22e5cf5f32b471f170f410ff4f.msu
+Version      : 1903
+Architecture : x86
 ```
 
 If this output is passed to `Save-LatestUpdate`, the update package will only be downloaded once; however, if you would still like to filter for a single x64 update, the following syntax could be used:
 
 ```powershell
-Get-LatestUpdate | Where-Object { ($_.Arch -eq "x64") -and ($_.Version -like "*Windows 10*") }
-```
-
-or
-
-```powershell
-Get-LatestUpdate | Where-Object { $_.Arch -eq "x64" } | Sort-Object -Property Url -Unique
+Get-LatestCumulativeUpdate -Version 1809 | Where-Object { ($_.Architecture -eq "x64") | Save-LatestUpdate -Path C:\Updates
 ```
