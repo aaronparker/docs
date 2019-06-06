@@ -24,8 +24,9 @@
     * Usage
         * [Get Cumulative updates](./LatestUpdate/GET-LATEST.md)
         * [Get Servicing Stack updates](./LatestUpdate/GET-STACK.md)
-        * [Get Flash updates](./LatestUpdate/GET-FLASH.md)
+        * [Get Adobe Flash updates](./LatestUpdate/GET-FLASH.md)
+        * [Get .NET Framework Cumulative updates](./LatestUpdate/GET-NET.md)
+        * [Get Monthly Rollup updates](./LatestUpdate/GET-MONTHLY.md)
         * [Downloading the updates](./LatestUpdate/DOWNLOAD.md)
-        * [Importing updates into MDT](./LatestUpdate/IMPORT.md)
     * [Change log](./LatestUpdate/CHANGELOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
