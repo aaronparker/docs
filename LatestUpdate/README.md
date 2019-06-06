@@ -1,6 +1,5 @@
 # LatestUpdate
 
-[![License][license-badge]][license]
 [![Build status][appveyor-badge]][appveyor-build]
 [![GitHub Release][github-release-badge]][github-release]
 [![PowerShell Gallery][psgallery-badge]][psgallery]
@@ -47,5 +46,3 @@ This module uses code and inspiration from these sources:
 [psgallery-version]: https://www.powershellgallery.com/packages/latestupdate
 [github-release-badge]: https://img.shields.io/github/release/aaronparker/LatestUpdate.svg?logo=github&style=flat-square
 [github-release]: https://github.com/aaronparker/LatestUpdate/releases/latest
-[license-badge]: https://img.shields.io/github/license/aaronparker/latestupdate.svg?style=flat-square
-[license]: https://github.com/aaronparker/latestupdate/blob/master/LICENSE
