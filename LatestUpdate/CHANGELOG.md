@@ -1,5 +1,13 @@
 # Change Log
 
+## v3.0.119
+
+* Fix `Version` property in `Get-LatestMonthlyUpdate` to reflect Windows 8.1/7 etc.
+* Remove `-Version` parameter from `Get-LatestNetFrameworkUpdate` and `Get-LatestAdobeFlashUpdate`
+* Change how we check for a successfully downloaded files in `Save-LatestUpdate`, because `Start-BitsTransfer` doesn't return HTTP codes
+* Fix `Test-Path 'env:APPVEYOR_BUILD_FOLDER` in `PublicFunctions.Tests.ps1`
+* Add additional Pester tests to `PublicFunctions.Tests.ps1`
+
 ## v3.0.112
 
 A complete re-write of LatestUpdate to optimise code and ensure a more predictable response when querying the update feeds.
