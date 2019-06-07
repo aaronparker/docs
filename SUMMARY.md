@@ -28,5 +28,5 @@
         * [Get .NET Framework Cumulative updates](./LatestUpdate/GET-NET.md)
         * [Get Monthly Rollup updates](./LatestUpdate/GET-MONTHLY.md)
         * [Downloading the updates](./LatestUpdate/DOWNLOAD.md)
-    * [Change log](./LatestUpdate/CHANGELOG.md)
+    * [Change log](./LatestUpdate/CHANGE-LOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
