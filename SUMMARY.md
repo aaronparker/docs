@@ -27,6 +27,7 @@
         * [Get Adobe Flash updates](./LatestUpdate/GET-FLASH.md)
         * [Get .NET Framework Cumulative updates](./LatestUpdate/GET-NET.md)
         * [Get Monthly Rollup updates](./LatestUpdate/GET-MONTHLY.md)
+        * [Get Windows Defender updates](./LatestUpdate/GET-DEFENDER.md)
         * [Downloading the updates](./LatestUpdate/DOWNLOAD.md)
     * [Change log](./LatestUpdate/CHANGE-LOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
