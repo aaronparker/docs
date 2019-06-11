@@ -32,5 +32,5 @@
     * [Change log](./LatestUpdate/CHANGE-LOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
 * FSLogix
-    * [Profile Cleanup]](./FSLogix/PROFILE.md)
-    * [Profile Containers Redirections]](./FSLogix/REDIRECTIONS.md)
+    * [Profile Cleanup](./FSLogix/PROFILE.md)
+    * [Profile Containers Redirections](./FSLogix/REDIRECTIONS.md)
