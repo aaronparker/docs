@@ -4,7 +4,7 @@
     * [Supported Platforms](./VcRedist/supported.md)
     * [Install the Module](./VcRedist/install.md)
     * Usage
-        * [Get the VcRedist List](./VcRedist/get-vclist.md)
+        * [Get the VcRedist list](./VcRedist/get-vclist.md)
         * [Download the Redistributables](./VcRedist/save-vcredist.md)
         * [Install the Redistributables](./VcRedist/install-vcredist.md)
         * [Import Redistributables into MDT](./VcRedist/import-vcmdtapplication.md)
@@ -31,3 +31,6 @@
         * [Downloading the updates](./LatestUpdate/DOWNLOAD.md)
     * [Change log](./LatestUpdate/CHANGE-LOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
+* FSLogix
+    * [Profile Cleanup]](./FSLogix/PROFILE.md)
+    * [Profile Containers Redirections]](./FSLogix/REDIRECTIONS.md)
