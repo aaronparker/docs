@@ -1,5 +1,10 @@
 # Change Log
 
+## v3.0.120
+
+* Added `Get-LatestWindowsDefenderUpdate` to retrieve updates for the Windows Defender antimalware platform
+* Additional Pester tests to support `Get-LatestWindowsDefenderUpdate`
+
 ## v3.0.119
 
 * Fix `Version` property in `Get-LatestMonthlyUpdate` to reflect Windows 8.1/7 etc.
@@ -13,29 +18,29 @@
 A complete re-write of LatestUpdate to optimise code and ensure a more predictable response when querying the update feeds.
 
 * Public functions are now:
-	* Get-LatestAdobeFlashUpdate
-	* Get-LatestCumulativeUpdate
-	* Get-LatestNetFrameworkUpdate (new)
-	* Get-LatestServicingStackUpdate
-	* Get-LatestMonthlyRollup (dedicated for Windows 8/7)
-	* Save-LatestUpdate
+	* `Get-LatestAdobeFlashUpdate`
+	* `Get-LatestCumulativeUpdate`
+	* `Get-LatestNetFrameworkUpdate` (new)
+	* `Get-LatestServicingStackUpdate`
+	* `Get-LatestMonthlyRollup` (dedicated for Windows 8/7)
+	* `Save-LatestUpdate`
 * External strings including feed URLs, search strings etc. are stored in an external manifest instead of embedded into the module
 * Simplified parameters
-* Import-LatestUpdate has been removed so that the function fully supports PowerShell Core. Importing an update into MDT can be easily scripted
-* Addresses issues #39 #38 #36 #37 #33 #32. Save-LatestUpdate has proxy support to address #16. Will add proxy support to other functions in a future update
+* `Import-LatestUpdate` has been removed so that the function fully supports PowerShell Core. Importing an update into MDT can be easily scripted
+* Addresses issues #39 #38 #36 #37 #33 #32. `Save-LatestUpdate` has proxy support to address #16. Will add proxy support to other functions in a future update
 
 ## v2.5.0.0
 
 ### Public Functions
 
-* Added Get-LatestNETFramework function to find the latest cumulative update for the .NET Framework.
-* The Get-LatestFlash now support OS filtering.
-* The Save-LatestUpdate function now supports the -Force parameter to force the download of updates, overwriting them when they already exist.
-* The Save-LatestUpdate function now supports proxy usage with authentication credentials option when needed.
+* Added `Get-LatestNETFramework` function to find the latest cumulative update for the .NET Framework.
+* The `Get-LatestFlash` now support OS filtering.
+* The `Save-LatestUpdate` function now supports the `-Force` parameter to force the download of updates, overwriting them when they already exist.
+* The `Save-LatestUpdate` function now supports proxy usage with authentication credentials option when needed.
 
 ### Private Functions
 
-* Added Searchstring parameter to Get-UpdateCatalogLink which allows the function to be used for other searches in the catalog besides only KB article numbers
+* Added `Searchstring` parameter to `Get-UpdateCatalogLink` which allows the function to be used for other searches in the catalog besides only KB article numbers
 
 ## v2.4.1.97
 
