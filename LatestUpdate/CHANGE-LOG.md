@@ -76,7 +76,7 @@ A complete re-write of LatestUpdate to optimise code and ensure a more predictab
 * Update `Get-UpdateDownloadArray` to add Version property to function outputs
 * Add tests for Version property in all public functions
 
-## v.2.2.0.74
+## v2.2.0.74
 
 * Add `Get-LatestServicingStack` Public function to return Servicing Stack updates for Windows 10 versions.
 * Update module description
@@ -113,9 +113,6 @@ A complete re-write of LatestUpdate to optimise code and ensure a more predictab
 ## v1.1.0.36
 
 * Fix inline help examples for `Import-LatestUpdate` to address issue #11
-
-### Tests
-
 * Update Pester tests in `PublicFunctions.Tests.ps1` to ensure successful tests for `Get-LatestUpdate` using `Should -Not -BeNullOrEmpty`
 
 ## v1.1.0.34
