@@ -34,3 +34,4 @@
 * FSLogix
     * [Profile Cleanup](./FSLogix/PROFILE.md)
     * [Profile Containers Redirections](./FSLogix/REDIRECTIONS.md)
+    * [Find Application Registry keys](./FSLogix/APPKEYS.md)
