@@ -27,7 +27,7 @@ There are two methods for installing the script:
     Install-Script -Name ConvertTo-RedirectionsXml
     ```
 
-2. Download from this repository. `ConvertTo-RedirectionsXml.ps1` can be downloaded directly from this repository and saved to a preferred location.
+2. Download from the [repository](https://github.com/aaronparker/FSLogix). `ConvertTo-RedirectionsXml.ps1` can be downloaded directly from this repository and saved to a preferred location.
 
 ## Creating Redirections.xml
 
