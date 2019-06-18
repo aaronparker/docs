@@ -10,13 +10,6 @@ The list of redirections (`Redirections.csv`) is hosted here in CSV format so th
 
 It is also important to understand the performance impacts of implementing exclusions for Profile Containers. Ensure that the `redirections.xml` that you implement in your environment is well tested before moving into production.
 
-## How To Contribute
-
-Contributions to the list of folders to exclude or include from the Profile Container is needed to improve the list. There are two ways to contribute:
-
-1. [Fork the repo](https://help.github.com/en/articles/fork-a-repo), update `redirections.csv` and create a [Pull Request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request)
-2. If would prefer not to create a pull request, you can instead [create a new issue to request an addition or improvement](https://github.com/aaronparker/FSLogix/issues/new?assignees=&labels=&template=custom.md&title=)
-
 ## Install the Script
 
 There are two methods for installing the script:
@@ -29,7 +22,7 @@ There are two methods for installing the script:
 
 2. Download from the [repository](https://github.com/aaronparker/FSLogix). `ConvertTo-RedirectionsXml.ps1` can be downloaded directly from this repository and saved to a preferred location.
 
-## Creating Redirections.xml
+## Usage
 
 `ConvertTo-RedirectionsXml` is used to convert the CSV list into the correct XML format for use with Profile Containers. This script will read the `Redirections.csv` from GitHub repo and output `Redirections.xml` locally for use with Profile Containers.
 
@@ -50,3 +43,10 @@ If you have saved the script locally instead of installing from the PowerShell G
 ```powershell
 .\ConvertTo-RedirectionsXml.ps1
 ```
+
+## How To Contribute
+
+Contributions to the list of folders to exclude or include from the Profile Container is needed to improve the list. There are two ways to contribute:
+
+1. [Fork the repo](https://help.github.com/en/articles/fork-a-repo), update `redirections.csv` and create a [Pull Request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request)
+2. If would prefer not to create a pull request, you can instead [create a new issue to request an addition or improvement](https://github.com/aaronparker/FSLogix/issues/new?assignees=&labels=&template=custom.md&title=)
