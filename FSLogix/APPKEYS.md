@@ -24,7 +24,48 @@ The following example will find keys related to Microsoft Visio
 . .\Get-ApplicationRegistryKey.ps1 -SeachString "Visio"
 ```
 
-The script will output a list of keys, similar to the list below, that can then be validated and used in an App Masking ruleset for Visio:
+The value for SearchString can be passed to `Get-ApplicationRegistryKey.ps1` via the pipeline. To search for Registry keys specific to Visio and Project by passing strings to Get-ApplicationRegistryKey.ps1 via the pilpeline, use:
+
+```powershell
+C:\> "Visio", "Project" | .\Get-ApplicationRegistryKey.ps1
+```
+
+To search for Registry keys specific to Adobe Reader or Acrobat:
+
+```powershell
+C:\> .\Get-ApplicationRegistryKey.ps1 -SearchString "Adobe"
+```
+
+To search for Registry keys specific to Visio and Project:
+
+```powershell
+C:\> .\Get-ApplicationRegistryKey.ps1 -SearchString "Visio", "Project"
+```
+
+To search for Registry keys specific to Skype for Business:
+
+```powershell
+C:\> .\Get-ApplicationRegistryKey.ps1 -SearchString "Skype"
+```
+
+A list of Registry keys can be passed to `Get-ApplicationRegistryKey.ps1` on the pipeline from an object with a `Key` property. For example, consider an object named `$List` that has a set of Registry paths in a property named `Key`:
+
+```powershell
+C:\> $List
+
+Title Key
+----- ---
+Path  HKLM:\SOFTWARE\Classes\CLSID
+Path  HKLM:\SOFTWARE\Classes
+```
+
+This object can be passed to `Get-ApplicationRegistryKey.ps1` on the pipeline as per the following example:
+
+```powershell
+$List | . "\\Mac\Home\projects\FSLogix\Rules\Get-ApplicationRegistryKey.ps1" -Verbose -SearchString "Visio"
+```
+
+In each case, the script will output a list of keys, similar to the list below, that can then be validated and used in an App Masking ruleset:
 
 ```text
 HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Icad.ViewerDrawing
