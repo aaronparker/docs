@@ -1,5 +1,28 @@
 # Change Log
 
+## v3.0.147
+
+* Add `-OperatingSystem` and `-Version` to all public functions to narrow search results and improve performance
+* Add `-OperatingSystem` and `-Version` support to `Get-LatestAdobeFlashUpdate` to narrow search results for each OS and Windows 10 versions so that function returns all available updates
+* Add `ParameterValues` in module resource JSON to enable dynamic parameter values and removed hard-coded values in functions
+* Add `Register-ArgumentCompleter` in module script to register dynamic parameter values for Get functions
+* Update parameters for dynamic parameter values and validation to `Get-LatestAdobeFlashUpdate`, `Get-LatestCumulativeUpdate`, `Get-LatestMonthlyRollup`, `Get-LatestNetFrameworkUpdate`, `Get-LatestServicingStackUpdate`, `Get-LatestWindowsDefenderUpdate`
+* Add `Get-ModuleResource` to module script to retrieve module resource strings once during module import rather than in each function
+* Update functions to use `$script:resourceStrings` for function scope variable
+* Remove `SupportsShouldProcess` from Get and Private functions where `-WhatIf` support does not make sense
+* Removed `ValueFromPipeline` support on Private functions as pipeline support is not required
+* Splat `Get-UpdateCatalogDownloadInfo` parameters for readability
+* Add additional search string support to `Invoke-UpdateCatalogSearch` and `Invoke-UpdateCatalogSearch.ps1` to narrow search results. Some update searches may return more than 25 results which can't easily be expanded to return all required results
+* Add additional exceptions to Try/Catch statements in `Get-UpdateFeed` to report correctly on potential exceptions
+* Update `Get-LatestNetFrameworkUpdate` to filter .NET Framework update results on the most recent month to ensure that only relevant updates are returned
+* Update `Get-LatestServicingStackUpdate` to better support Windows 8 and Windows 7
+* Update how `Save-LatestUpdate` writes to the pipeline to ensure correct format for output object
+* Escape "." in .NET Framework search string in module resource JSON for correct string matching
+* Ensure Public functions don't attempt to send Null to the pipeline
+* Add additional verbose output in Public functions
+* Update in-line help in Public functions
+* Update `PublicFunctions.Tests.ps1` with tests dynamically driven by module resource JSON. This ensures that the tests do not require hard coded tests and use the same strings as the module
+
 ## v3.0.131
 
 * Modify `Save-LatestUpdate` output with KB, Note and Path properties
