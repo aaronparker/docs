@@ -93,5 +93,5 @@ Architecture : x86
 If this output is passed to `Save-LatestUpdate`, the update package will only be downloaded once; however, if you would still like to filter for a single x64 update, the following syntax could be used:
 
 ```powershell
-Get-LatestCumulativeUpdate -Version 1809 | Where-Object { ($_.Architecture -eq "x64") | Save-LatestUpdate -Path C:\Updates
+Get-LatestCumulativeUpdate -Version 1809 | Where-Object { ($_.Architecture -eq "x64") } | Save-LatestUpdate -Path C:\Updates
 ```

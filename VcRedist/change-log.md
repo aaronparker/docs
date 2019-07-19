@@ -1,5 +1,16 @@
 # Change log
 
+## v2.0.147
+
+- Add basic proxy support to `Save-VcRedist`
+- General code formatting and quality updates - use of full type names and cmdlet/function parameters, parameter splatting
+- Update verbose output messages
+- Consistent parameter declaration on Public functions
+- Additional Try/Catch statements for better handling of exceptions
+- Remove Begin/Process/End statements from functions that don't need to support multiple objects on the pipeline
+- Move module manifest location from `/Manifest` to top level module folder and update `Get-VcList` to reflect new location
+- Update AppVeyor integration and scripts layout
+
 ## v2.0.140
 
 - Update the manifest for VcRedist `2019` version `14.21.27702.2` for Visual Studio 2019 16.1
