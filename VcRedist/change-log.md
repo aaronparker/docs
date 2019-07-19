@@ -3,6 +3,7 @@
 ## v2.0.147
 
 - Add basic proxy support to `Save-VcRedist`
+- Update output for `Import-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtApplication`, `Update-VcMdtBundle` to export all application properties
 - General code formatting and quality updates - use of full type names and cmdlet/function parameters, parameter splatting
 - Update verbose output messages
 - Consistent parameter declaration on Public functions

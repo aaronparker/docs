@@ -13,14 +13,16 @@ Save-VcRedist downloads the Redistribuables and returns the array passed from Ge
 
 ### Optional parameters
 
-* `ForceWebRequest` - Forces the use of Invoke-WebRequest over Start-BitsTransfer. Useful for when running Server Core 
+* `ForceWebRequest` - Forces the use of Invoke-WebRequest over Start-BitsTransfer. Useful for when running Server Core or under PowerShell Core
+* `Proxy` - Specify a proxy server to use when downloading the Visual C++ Redistributables
+* `ProxyCredential` - If the proxy server requires authentication, credentials can be specified as an PSCredential object
 
 ## Examples
 
 To download the default list of Redistributables to `C:\Temp\VcRedist`, use the following command:
 
 ```powershell
-New-Item C:\Temp\VcRedist -ItemType Directory
+New-Item -Path C:\Temp\VcRedist -ItemType Directory
 Get-VcList | Save-VcRedist -Path C:\Temp\VcRedist
 ```
 
