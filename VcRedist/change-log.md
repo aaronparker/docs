@@ -1,5 +1,12 @@
 # Change log
 
+## v2.0.158
+
+* Add default path for `-Path` parameter in `Save-VcRedist` and `Install-VcRedist` to address #53 and ensure function works when parameter is not specified
+* Add Begin,Process,End to fix pipeline support in `Save-VcRedist`, `Install-VcRedist`, `Import-VcConfigMgrApplication`, `Import-VcMdtApplication`, `Update-VcMdtApplication` and `Update-VcMdtBundle` and address #53 
+* Add function `Uninstall-VcRedist` to manage uninstalling VcRedists
+* Update Pester tests for Public functions
+
 ## v2.0.147
 
 - Add basic proxy support to `Save-VcRedist`

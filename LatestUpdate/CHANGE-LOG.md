@@ -1,5 +1,10 @@
 # Change Log
 
+## v3.0.158
+
+* Added `-Previous` switch to `Get-LatestCumulativeUpdate`, `Get-LatestServicingStackUpdate`, `Get-LatestAdobeFlashUpdate`, and `Get-LatestMonthlyRollup` (and supporting private functions). `-Previous` specifies that the previous to the latest update should be returned so that currently offered updates from Windows Update can be returned in addition to the most recent update See [https://www.osdeploy.com/blog/microsoft-update-releases](https://www.osdeploy.com/blog/microsoft-update-releases) for more info.
+* Added Pester tests for `Previous` switch
+
 ## v3.0.147
 
 * Add `-OperatingSystem` and `-Version` to all public functions to narrow search results and improve performance
