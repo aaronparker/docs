@@ -1,5 +1,12 @@
 # Change Log
 
+## v3.0.164
+
+* Added `Revision` property to `Get-LatestCumulativeUpdate` showing the Build and Revision of the cumulative update
+* Added `Process` block to `Save-LatestUpdate` to ensure full pipeline support
+* Updated Pester tests for `Revision` property and `Should -BeOfType` tests
+* Updated code formatting and consistency across private and public functions
+
 ## v3.0.158
 
 * Added `-Previous` switch to `Get-LatestCumulativeUpdate`, `Get-LatestServicingStackUpdate`, `Get-LatestAdobeFlashUpdate`, and `Get-LatestMonthlyRollup` (and supporting private functions). `-Previous` specifies that the previous to the latest update should be returned so that currently offered updates from Windows Update can be returned in addition to the most recent update See [https://www.osdeploy.com/blog/microsoft-update-releases](https://www.osdeploy.com/blog/microsoft-update-releases) for more info.
