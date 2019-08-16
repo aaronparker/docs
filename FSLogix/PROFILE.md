@@ -38,7 +38,7 @@ To enable the script to clean up the user's profile, the following example comma
 .\Remove-ProfileData.ps1 -Targets .\targets.xml -Confirm:$False
 ```
 
-![Output from Remove-ProfileData.png](https://raw.githubusercontent.com/aaronparker/docs/master/images/ProfileDataOutput.png "Output from Remove-ProfileData.png")
+![Output from Remove-ProfileData](https://raw.githubusercontent.com/aaronparker/docs/master/images/ProfileDataOutput.png "Output from Remove-ProfileData")
 
 The age of files specified in the XML can be overridden with the `-Override` switch. This will remove files of any ages as specificed in the XML targets file.
 
@@ -46,40 +46,39 @@ The age of files specified in the XML can be overridden with the `-Override` swi
 .\Remove-ProfileData.ps1 -Targets .\targets.xml -Confirm:$False -Override
 ```
 
+By default, logs are kept for files that are deleted in %LocalAppData% and up to 30 logs will be kept. This number can be changed with the -KeepLog parameter.
+
+```powershell
+.\Remove-ProfileData.ps1 -Targets .\targets.xml -Confirm:$False -LogPath $env:AppData -KeepLog 7
+```
+
 ### Running Remove-ProfileData.ps1
 
 `Remove-ProfileData.ps1` is be run in the user session which could be done in several ways:
 
-* A login script - the script can be run to prune the user profile during login; however, consider potential login storms and impacts on IO and CPU
+* A logon script - the script can be run to prune the user profile during login; however, consider potential login storms and impacts on IO and CPU
 * A scheduled task - configure Windows Task Scheduler to run the script as the logged on user. Consider using task schedule trigger and condition properties to stagger the task across multiple users or desktop
 * A logoff script - run the script during user logoff where applications are typically closed and user logoff actions are likely to be staggered
 
-## About Remove-ContainerData.ps1
+#### Group Policy Logon / Logoff
 
-`Remove-ContainerData` is used to delete files and folders in a user's FSLogix Profile Container by mounting the Container and pruning files, thus keeping the Container size to a minimum. The script reads an XML file that defines a list of files and folders to remove from the Container. Actions on a target path can be:
+To run `Remove-ProfileData.ps1` in a Group Policy login or logoff script action, create a new GPO (or edit an existing GPO) to add `Remove-ProfileData.ps1` as a script.
 
-* Prune - the XML can include a number that defines the age in days for last write that the file must be older than to be deleted. Essentially reducing the size of the folder.
-* Delete - the target path will be deleted. Where the administrator may want to remove a target path, the Delete action will delete the entire folder.
-* Trim - where the target path contains sub-folders, this action will remove all sub-folders except for the newest folder.
+* Open the *User Configuration / Policies / Windows Settings / Scripts (Logon/Logoff)* node. Edit either Logon or Logoff
+* Click the `PowerShell Scripts` tab and click the *Show Files* button. Copy `Remove-ProfileData.ps1` into the location displayed in Explorer.
 
-Supports `-WhatIf` and `-Verbose` output and returns a list of files removed from the profile. Add `-Verbose` will output the total size of files removed from the user profile and processing time at the end of the script. All targets (files / folders) that are deleted, will be logged to a file.
+![Group Policy object scripts folder](https://raw.githubusercontent.com/aaronparker/docs/master/images/GroupPolicyScripts.png "Group Policy object scripts folder")
 
-Deleting files from the Container can potentially result in data loss, so testing is advised and the use of `-Confirm:$false` is required for the script perform a delete.
+* Edit `Remove-ProfileData.ps1` and make the following changes:
+    - Remove `ConfirmImpact = 'High'` (approximately line 49, starting with `CmdletBinding`)
+    - Change `Mandatory = $True` to `Mandatory = $False` for the `Targets` parameter (approximately line 53)
 
-This script depends on the following PowerShell modules:
+* Copy `Targets.xml` to a central location. The `NETLOGON` share is a good candidate to ensure that the file is available centrally
 
-* `ActiveDirectory` - Installed as a feature in Windows Server or via [RSAT](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems)
-* `Hyper-V` - Installed as a feature in Windows Server or via [RSAT](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems)
-* `Fslogix.Powershell.Disk` - this module is found here: [https://github.com/aaronparker/FSLogix/tree/master/Modules/Fslogix.Powershell.Disk](https://github.com/aaronparker/FSLogix/tree/master/Modules/Fslogix.Powershell.Disk)
+![Targets.xml in the NETLOGON share](https://raw.githubusercontent.com/aaronparker/docs/master/images/GroupPolicyNetlogon.png "Targets.xml in the NETLOGON share")
 
-`Remove-ContainerData.ps1` and supporting files are available on in [the repository on GitHub](https://github.com/aaronparker/FSLogix/tree/master/Profile-Cleanup).
+* Add `Remove-ProfileData.ps1` as a script with the `-Targets` parameter (e.g. `-Targets "\\home.stealthpuppy.com\NETLOGON\ProfileTargets.xml"`)
 
-### Usage
+![Adding the script](https://raw.githubusercontent.com/aaronparker/docs/master/images/GroupPolicyPowerShell.png "Adding the script")
 
-```powershell
-.\Remove-ContainerData.ps1 -Path \\server\FSLogixContainer -Targets .\targets.xml
-```
-
-### Running Remove-ContainerData.ps1
-
-`Remove-ContainerData.ps1` must be run outside the user session when Profile Containers are not in use. The script will require exclusive access to the Container to mount it with read/write access. `Remove-ContainerData.ps1` could be run as a schedule task outside of business hours from a management host.
+Link the GPO to an organisational unit containing target user accounts (or use where the GPO is linked to a computer OU with [Loopback](https://support.microsoft.com/en-au/help/231287/loopback-processing-of-group-policy) enabled).

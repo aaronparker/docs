@@ -31,6 +31,7 @@
     * [Change log](./LatestUpdate/CHANGE-LOG.md)
     * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
 * FSLogix
-    * [Keeping Profile Container size in check](./FSLogix/PROFILE.md)
+    * [Keeping User Profile size in check](./FSLogix/PROFILE.md)
+    * [Pruning the Profile Container](./FSLogix/CONTAINER.md)
     * [Build Profile Container Redirections.xml](./FSLogix/REDIRECTIONS.md)
     * [Find App Registry keys for App Masking](./FSLogix/APPKEYS.md)
