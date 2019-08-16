@@ -17,7 +17,6 @@
     * [Change log](./VcRedist/change-log.md)
     * [Understanding VcRedist Versioning](./VcRedist/versioning.md)
     * [Known issues](./VcRedist/known-issues.md)
-    * [Redistributables](./VcRedist/redistributables.md)
 * [LatestUpdate](./LatestUpdate/README.md)
     * [Supported Platforms](./LatestUpdate/SUPPORTED.md)
     * [Installing the module](./LatestUpdate/INSTALL.md)
