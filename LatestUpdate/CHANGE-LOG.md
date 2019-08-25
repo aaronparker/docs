@@ -1,5 +1,14 @@
 # Change Log
 
+## v3.0.171
+
+* Fixed an issue where `Get-LatestAdobeFlashUpdate` was not returning updates for Windows Server
+* Added System.Net.WebClient support to `Save-LatestUpdate` for faster downloads
+* Fixed an issue where `Version` property in output was not correct due to extracting wrong string from update title
+* Update module resource strings JSON
+* Update module description
+* Update Public modules Pester tests
+
 ## v3.0.164
 
 * Added `Revision` property to `Get-LatestCumulativeUpdate` showing the Build and Revision of the cumulative update
