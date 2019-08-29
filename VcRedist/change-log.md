@@ -1,5 +1,10 @@
 # Change log
 
+## v2.0.161
+
+* VcRedists imported into the MDT deployment share don't have the `Hide this application in the Deployment Wizard` option enabled
+* Added `-DontHide` parameter to `Import-VcMdtApplication` to not hide applications in the MDT Deployment Wizard
+
 ## v2.0.158
 
 * Add default path for `-Path` parameter in `Save-VcRedist` and `Install-VcRedist` to address #53 and ensure function works when parameter is not specified
