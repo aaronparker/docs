@@ -2,7 +2,7 @@
 
 ## v2.0.163
 
-* Update manifest with VcRedist `2019 14.23.27820.0`
+* Update the manifest for VcRedist 2019 version `14.23.27820.0` for Visual Studio 2019 16.3
 
 ## v2.0.161
 
@@ -18,67 +18,67 @@
 
 ## v2.0.147
 
-- Add basic proxy support to `Save-VcRedist`
-- Update output for `Import-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtApplication`, `Update-VcMdtBundle` to export all application properties
-- General code formatting and quality updates - use of full type names and cmdlet/function parameters, parameter splatting
-- Update verbose output messages
-- Consistent parameter declaration on Public functions
-- Additional Try/Catch statements for better handling of exceptions
-- Remove Begin/Process/End statements from functions that don't need to support multiple objects on the pipeline
-- Move module manifest location from `/Manifest` to top level module folder and update `Get-VcList` to reflect new location
-- Update AppVeyor integration and scripts layout
+* Add basic proxy support to `Save-VcRedist`
+* Update output for `Import-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtApplication`, `Update-VcMdtBundle` to export all application properties
+* General code formatting and quality updates - use of full type names and cmdlet/function parameters, parameter splatting
+* Update verbose output messages
+* Consistent parameter declaration on Public functions
+* Additional Try/Catch statements for better handling of exceptions
+* Remove Begin/Process/End statements from functions that don't need to support multiple objects on the pipeline
+* Move module manifest location from `/Manifest` to top level module folder and update `Get-VcList` to reflect new location
+* Update AppVeyor integration and scripts layout
 
 ## v2.0.140
 
-- Update the manifest for VcRedist `2019` version `14.21.27702.2` for Visual Studio 2019 16.1
+* Update the manifest for VcRedist `2019` version `14.21.27702.2` for Visual Studio 2019 16.1
 
 ## v2.0.138
 
-- Fixed issue [#45 Blank Dependency entry on Apps imported from Import-VcMdtApplication](https://github.com/aaronparker/VcRedist/issues/45)
-- Fixing issue when importing VcRedists into ConfigMgr [#47](https://github.com/aaronparker/VcRedist/issues/47)
+* Fixed issue [#45 Blank Dependency entry on Apps imported from Import-VcMdtApplication](https://github.com/aaronparker/VcRedist/issues/45)
+* Fixing issue when importing VcRedists into ConfigMgr [#47](https://github.com/aaronparker/VcRedist/issues/47)
 
 ## v2.0.132
 
-- Simplify version semantics to major.minor.build
-- Add VcRedist `2019` to the manifest
-- Convert the manifest to JSON for easier management and simpler code
-- Update function `Get-VcList` to support JSON manifest format
-- Combine VcRedists into a single manifest
-- Rename `Get-VcRedist` to `Save-VcRedist`
-- Rename `Import-VcCmApp` to `Import-VcConfigMgrApplication`
-- Rename function `Export-VcXml` to `Export-VcManifest`
-- Rename `Import-VcMdtApp` to `Import-VcMdtApplication`
-- Split function `Import-VcMdtApplication` into `Import-VcMdtApplication`, `Update-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtBundle` to simplfy code and provide more robust functions
-- Update HelpUri property on each function
-- Update `Get-InstalledVcRedist` to export additional properties including `Release` and `Architecture`
-- Add private functions `New-MdtApplicationFolder`, `New-MdtDrive`
-- Update function `Get-VcList` with `-Export` parameter for `All, Supported, Unsupported`
-- Add ability to filter `Get-VcList` output with `-Release` and `-Architecture`
-- Fix pipeline support for `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication` to accept output from `Get-VcList` on the pipeline
-- Remove `-Release` and `-Architecture` parameters from `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication`. Use `Get-VcList` to filter for release and architecture instead
-- Update Pester tests for public and private functions
+* Simplify version semantics to major.minor.build
+* Add VcRedist `2019` to the manifest
+* Convert the manifest to JSON for easier management and simpler code
+* Update function `Get-VcList` to support JSON manifest format
+* Combine VcRedists into a single manifest
+* Rename `Get-VcRedist` to `Save-VcRedist`
+* Rename `Import-VcCmApp` to `Import-VcConfigMgrApplication`
+* Rename function `Export-VcXml` to `Export-VcManifest`
+* Rename `Import-VcMdtApp` to `Import-VcMdtApplication`
+* Split function `Import-VcMdtApplication` into `Import-VcMdtApplication`, `Update-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtBundle` to simplfy code and provide more robust functions
+* Update HelpUri property on each function
+* Update `Get-InstalledVcRedist` to export additional properties including `Release` and `Architecture`
+* Add private functions `New-MdtApplicationFolder`, `New-MdtDrive`
+* Update function `Get-VcList` with `-Export` parameter for `All, Supported, Unsupported`
+* Add ability to filter `Get-VcList` output with `-Release` and `-Architecture`
+* Fix pipeline support for `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication` to accept output from `Get-VcList` on the pipeline
+* Remove `-Release` and `-Architecture` parameters from `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication`. Use `Get-VcList` to filter for release and architecture instead
+* Update Pester tests for public and private functions
 
 ## v1.5.2.98
 
-- Update manifests with correct details for VcRedist 2017 `v14.16.27027.1`. v1.5.1.95 included the incorrect manifest commit.
+* Update manifests with correct details for VcRedist 2017 `v14.16.27027.1`. v1.5.1.95 included the incorrect manifest commit.
 
 ## v1.5.1.95
 
-- Update manifests with VcRedist 2017 `v14.16.27024.1`
-- Update module to export alias `Save-VcRedist` for `Get-VcRedist`. Next major version will rename `Get-VcRedist` to `Save-VcRedist`
-- Change `-VcList` to use `[PSCustomObject]` instead of `[array]` in `Import-VcCmApp` and `Import-VcMdtApp`
-- Update module icon to use new Visual Studio 2019 icon
+* Update manifests with VcRedist 2017 `v14.16.27024.1`
+* Update module to export alias `Save-VcRedist` for `Get-VcRedist`. Next major version will rename `Get-VcRedist` to `Save-VcRedist`
+* Change `-VcList` to use `[PSCustomObject]` instead of `[array]` in `Import-VcCmApp` and `Import-VcMdtApp`
+* Update module icon to use new Visual Studio 2019 icon
 
 ## v1.5.0.92
 
-- Added private function `Import-MdtModule` to improve MDT module loading code
-- Update `Import-VcMdtApp` for more robust error checking
-- Update private function `Get-ValidPath` to avoid errors on invalid path
-- Update manifest with VcRedist 2017 version `14.16.27024.1`
+* Added private function `Import-MdtModule` to improve MDT module loading code
+* Update `Import-VcMdtApp` for more robust error checking
+* Update private function `Get-ValidPath` to avoid errors on invalid path
+* Update manifest with VcRedist 2017 version `14.16.27024.1`
 
 ## v1.4.3.88
 
-- Fix private function `Get-Bitness` to ensure only single output when using no parameters or with `-Architecture`
+* Fix private function `Get-Bitness` to ensure only single output when using no parameters or with `-Architecture`
 
 ## v1.4.2.85
 
@@ -89,7 +89,7 @@
 * Add private function `Invoke-Process` (by Adam Bertram)
 * Update `Install-VcRedist` to use `Invoke-Process` for better `Start-Process` handling
 * Fix Resolve-Path / TrimEnd in private function `Get-ValidPath`
-* Fix relative path issue in `Import-VcCmApp` - closes issue \#24
+* Fix relative path issue in `Import-VcCmApp` * closes issue \#24
 * Bundle added to MDT now adds Redistributables as dependencies in order from oldest to newest
 * Splatting arguments in `Install-VcRedist`, `Import-VcMdtApp`, `Import-VcCmApp`
 * Code formatting updates
