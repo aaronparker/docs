@@ -1,5 +1,9 @@
 # Change log
 
+## v2.0.163
+
+* Update manifest with VcRedist `2019 14.23.27820.0`
+
 ## v2.0.161
 
 * VcRedists imported into the MDT deployment share don't have the `Hide this application in the Deployment Wizard` option enabled
