@@ -1,167 +1,162 @@
-# Change Log
+# Change log
 
-## 2001.110
+## v2.0.163
 
-* Adds `Get-MicrosoftTeams`
-* Update error handling in `Get-VideoLanVlcPlayer`
+* Update the manifest for VcRedist 2019 version `14.23.27820.0` for Visual Studio 2019 16.3
 
-## 2001.104
+## v2.0.161
 
-* Adds `Get-MicrosoftEdge` for the new Chromium based Microsoft Edge
-* Additional verbose output in `Invoke-WebContent`
+* VcRedists imported into the MDT deployment share don't have the `Hide this application in the Deployment Wizard` option enabled
+* Added `-DontHide` parameter to `Import-VcMdtApplication` to not hide applications in the MDT Deployment Wizard
 
-## 1911.101
+## v2.0.158
 
-* Adds `Get-ScooterBeyondCompare`
-* Updates XML parsing approach in `Get-CitrixRssFeed`, `Get-CitrixWorkspaceApp`, `Get-NotepadPlusPlus`, `Get-VideoLanVlcPlayer`
+* Add default path for `-Path` parameter in `Save-VcRedist` and `Install-VcRedist` to address #53 and ensure function works when parameter is not specified
+* Add Begin,Process,End to fix pipeline support in `Save-VcRedist`, `Install-VcRedist`, `Import-VcConfigMgrApplication`, `Import-VcMdtApplication`, `Update-VcMdtApplication` and `Update-VcMdtBundle` and address #53 
+* Add function `Uninstall-VcRedist` to manage uninstalling VcRedists
+* Update Pester tests for Public functions
 
-## 1911.97
+## v2.0.147
 
-* Adds private function `Resolve-RedirectedUri` to handle resolving 301/302 redirects on PowerShell Core and Windows PowerShell
-* Updates `Get-VideoLanVlcPlayer`, `Get-MicrosoftSsms`, `Get-FoxitReader`, `Get-MicrosoftFSLogixApps`, `Get-Zoom` with full support for PowerShell Core
-* Updates logic to filter out prerelease assets in `Get-Atom`, `Get-BISF`, `Get-GitForWindows`, `Get-Greenshot`, `Get-MicrosoftPowerShellCore`, `Get-OpenJDK`, `Get-ShareX`, `Get-mRemoteNG`
-* Prevents `Get-MicrosoftSsms`, `Get-CitrixRssFeed`, `Get-Cyberduck`, `Get-OracleJava8` from throwing on error
-* Updates to application manifests with some work on silent install commands
+* Add basic proxy support to `Save-VcRedist`
+* Update output for `Import-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtApplication`, `Update-VcMdtBundle` to export all application properties
+* General code formatting and quality updates - use of full type names and cmdlet/function parameters, parameter splatting
+* Update verbose output messages
+* Consistent parameter declaration on Public functions
+* Additional Try/Catch statements for better handling of exceptions
+* Remove Begin/Process/End statements from functions that don't need to support multiple objects on the pipeline
+* Move module manifest location from `/Manifest` to top level module folder and update `Get-VcList` to reflect new location
+* Update AppVeyor integration and scripts layout
 
-## 1911.95
+## v2.0.140
 
-* Adds `Get-MicrosoftFSLogixApps`
+* Update the manifest for VcRedist `2019` version `14.21.27702.2` for Visual Studio 2019 16.1
 
-## 1911.93
+## v2.0.138
 
-* Fixes version match in `Get-ControlUpAgent`
+* Fixed issue [#45 Blank Dependency entry on Apps imported from Import-VcMdtApplication](https://github.com/aaronparker/VcRedist/issues/45)
+* Fixing issue when importing VcRedists into ConfigMgr [#47](https://github.com/aaronparker/VcRedist/issues/47)
 
-## 1911.91
+## v2.0.132
 
-* Adds `Get-Cyberduck`
+* Simplify version semantics to major.minor.build
+* Add VcRedist `2019` to the manifest
+* Convert the manifest to JSON for easier management and simpler code
+* Update function `Get-VcList` to support JSON manifest format
+* Combine VcRedists into a single manifest
+* Rename `Get-VcRedist` to `Save-VcRedist`
+* Rename `Import-VcCmApp` to `Import-VcConfigMgrApplication`
+* Rename function `Export-VcXml` to `Export-VcManifest`
+* Rename `Import-VcMdtApp` to `Import-VcMdtApplication`
+* Split function `Import-VcMdtApplication` into `Import-VcMdtApplication`, `Update-VcMdtApplication`, `New-VcMdtBundle`, `Update-VcMdtBundle` to simplfy code and provide more robust functions
+* Update HelpUri property on each function
+* Update `Get-InstalledVcRedist` to export additional properties including `Release` and `Architecture`
+* Add private functions `New-MdtApplicationFolder`, `New-MdtDrive`
+* Update function `Get-VcList` with `-Export` parameter for `All, Supported, Unsupported`
+* Add ability to filter `Get-VcList` output with `-Release` and `-Architecture`
+* Fix pipeline support for `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication` to accept output from `Get-VcList` on the pipeline
+* Remove `-Release` and `-Architecture` parameters from `Install-VcRedist`, `Import-VcMdtApplication` and `Import-VcConfigMgrApplication`. Use `Get-VcList` to filter for release and architecture instead
+* Update Pester tests for public and private functions
 
-## 1911.87
+## v1.5.2.98
 
-* Adds `Get-JamTreeSizeFree` and `Get-JamTreeSizeProfessional`
-* Fixes URL to [Release notes / CHANGELOG](https://github.com/aaronparker/Evergreen/blob/master/CHANGELOG.md) in module manifest
+* Update manifests with correct details for VcRedist 2017 `v14.16.27027.1`. v1.5.1.95 included the incorrect manifest commit.
 
-## 1911.84
+## v1.5.1.95
 
-* Changes approach used in `Get-ControlUpAgent` to retrieve agent details and enables PowerShell Core support
-* Implemented per-application manifests (URLs, RegEx, strings etc.) for simpler function management
-* Adds `Export-EvergreenFunctionStrings` to export per-application manifests
-* Renames function `Get-Java8` to `Get-OracleJava8`
-* Adds Pester tests for Public functions to ensure URI properties are valid
+* Update manifests with VcRedist 2017 `v14.16.27024.1`
+* Update module to export alias `Save-VcRedist` for `Get-VcRedist`. Next major version will rename `Get-VcRedist` to `Save-VcRedist`
+* Change `-VcList` to use `[PSCustomObject]` instead of `[array]` in `Import-VcCmApp` and `Import-VcMdtApp`
+* Update module icon to use new Visual Studio 2019 icon
 
-## 1911.75
+## v1.5.0.92
 
-* Updates `Get-LibreOffice` update query approach to provide a more consistent output
-* Updates `Get-LibreOffice` to work on PowerShell Core
-* Changes `Get-LibreOffice` output and parameters to align with other functions
-* Updates `Get-NotepadPlusPlus` to gracefully handle update server issues (CloudFlare DDOS challenges)
-* Fixes version output in `Get-OpenJDK`
-* Updates `Get-mRemoteNG` with handling issues when getting Updates
-* Updates to Public function Pester tests
-* Updates `Evergreen.json` with consistent property naming and corresponding functions
+* Added private function `Import-MdtModule` to improve MDT module loading code
+* Update `Import-VcMdtApp` for more robust error checking
+* Update private function `Get-ValidPath` to avoid errors on invalid path
+* Update manifest with VcRedist 2017 version `14.16.27024.1`
 
-## 1910.62
+## v1.4.3.88
 
-* Updates `Get-MicrosoftSsms` to ensure that the URI property returns the correct SSMS download for the latest version
+* Fix private function `Get-Bitness` to ensure only single output when using no parameters or with `-Architecture`
 
-## 1910.53
+## v1.4.2.85
 
-* Adds `Get-WinMerge`
+* Fixed incorrect working directory when importing VcRedists into MDT in `Import-VcMdtApp`
 
-## 1910.50
+## v1.4.1.79
 
-* Updates `Get-VideoLanVlcPlayer` output to include ZIP and MSI links for VLC Player for Windows
+* Add private function `Invoke-Process` (by Adam Bertram)
+* Update `Install-VcRedist` to use `Invoke-Process` for better `Start-Process` handling
+* Fix Resolve-Path / TrimEnd in private function `Get-ValidPath`
+* Fix relative path issue in `Import-VcCmApp` * closes issue \#24
+* Bundle added to MDT now adds Redistributables as dependencies in order from oldest to newest
+* Splatting arguments in `Install-VcRedist`, `Import-VcMdtApp`, `Import-VcCmApp`
+* Code formatting updates
+* Documentation updates
 
-## 1910.49
+## v1.4.0.69
 
-* Updates `Get-MicrosoftSsms` to URL (e.g. `https://go.microsoft.com/fwlink/?LinkId=761491`) to return actual URI
+* Update manifests for latest `2017` release, version `14.15.26706.0`
+* Update manifests with silent install command line arguments
+* Added `-Silent` switch to `Install-VcRedist`, `Import-VcMdtApp` & `Import-VcCmApp` to support optional silent install command line arguments
+* Added private function `Get-Bitness` to support determining processor architecture of current OS
+* Update `Install-VcRedist` to avoid installing 64-bit Redistributables on 32-bit Windows
+* Removed pipeline support for `-VcRedist` parameter in `Install-VcRedist`, `Import-VcMdtApp` & `Import-VcCmApp`. Passing output from `Get-VcList` to these commands is not working correctly. Pipeline support may be added back in a future release
+* Removed `2015` Redistributables from default value for `-Release` parameter for `Install-VcRedist`, `Import-VcMdtApp` & `Import-VcCmApp` functions to avoid installing `2015` then `2017` Redistributables that are the same major release version
 
-## 1910.48
+## v1.3.7.60
 
-* Updates `Get-VideoLanVlcPlayer` to return download mirrors for URI values
+* Update manifests with `2013`, version `12.0.40664`
+* Added `UninstallString` to function `Get-InstalledVcRedist` output
+* `Get-VcList` will attempt to match the VcRedist version in the manifest to the `Product Version` property on an existing downloaded file. If the manifest has a higher version, the file will be re-downloaded
+* Added private function `Get-FileMetadata` to support retrieving `Product Version` from downloaded file
+* Update logic in `Install-VcRedist` when querying for installed VcRedists
 
-## 1910.47
+## v1.3.6.56
 
-* Adds `Get-Atom` and `Get-TeamViewer`
+* Add `Get-InstalledVcRedist`, using private function `Get-InstalledSoftware`. Closing issue \#18 with feature request for this function. `Get-InstallSoftware` function by [Adam Bertram](https://4sysops.com/archives/find-the-product-guid-of-installed-software-with-powershell/)
+* Update manifests with correct ProductCodes
+* Update documentation
 
-## 1910.39
+## v1.3.5.48
 
-* Update `Get-Zoom` to the same HTTP post as `https://zoom.us/support/download` to return the download URI. Returns download for Windows and VDI environments
-* Build script changes
+* Update manifests with `2017`, version `14.14`
+* Update manifests with `<Version></Version>` to enable better install logic e.g. skipping installing 2015 over 2017 \(same 14.x version\)
 
-## 1910.28
+## v1.3.4.45
 
-* Adds `Get-mRemoteNG`
-* Update version format to `YearMonth.Build` (hopefully we won't change this again)
-* Automate versioning in the module to the new format
-* Automate update of `appveyor.yml` as `YearMonth` changes
-* Output variables in AppVeyor to `\tests\appveyor.md`
+* Fix import of Redistributables with correct x86, x64 platform selection in MDT application in `Import-VcMdtApp`
+* Fix import of Redistributables into a folder specified by -AppFolder where the folder already exists in `Import-VcMdtApp`
 
-## 1910.18.26
+## v1.3.3.39
 
-* Adds `Get-OpenJDK`
-* Changes version notation to: YearMonth.Day.Build
+* Update manifests with 2017 \(14.13.26020\) release
+* Update module `ReleaseNotes` property with a link to changelog [https://docs.stealthpuppy.com/vcredist/change-log](https://docs.stealthpuppy.com/vcredist/change-log)
+* Update functions with explicit `Write-Output`
 
-## 19.10.25
+## v1.3.2.35
 
-* Adds `Get-MicrosoftOffice`
+* Code formatting updates
+* Use `Join-Path` to build folder/file paths to better work on PSCore
+* Pester tests updates
+* Version update to better align with feature changes
 
-## 19.10.24
+## v1.3.1.4
 
-* Fixes URIs for updates in `Get-AdobeAcrobatReaderDC`
-* Adds additional Pester tests for Public functions to ensure generated URI values are valid
+* Fixes to ConfigMgr application import
 
-## 19.10.21
+## v1.3.1.2
 
-* Adds `Get-FoxitReader`
+* Add `-Bundle` to `Import-VcMdtApp` to create an Application Bundle with the Redistributables as dependencies. Redistributables will be hidden so that only the Bundle is selectable in the deployment wizard
+* Updating simple Pester tests and getting Appveyor integration working
+* Cleanup inline help
+* Generated external help with platyPS
 
-## 19.10.20
+## v1.3.1.0
 
-* Fixes output in `Get-GitForWindows`, `Get-MicrosoftSmss`
+* Added function `Import-VcCmApp` for importing Visual C++ Redistributables into ConfigMgr.
 
-## 19.10.19
+## v1.3.0.0
 
-* Adds `Get-GitForWindows`, `Get-ShareX`
-
-## 19.10.11
-
-* Adds `Get-Java8`
-
-## 19.10.9
-
-* Adds `Get-BISF`
-* Adds `ConvertTo-DateTime` private function to handle DateTime conversion on PowerShell Core / Windows PowerShell
-
-## 19.10.2
-
-* First verison pushed to the PowerShell Gallery
-* Initial functions are:
-
-`Export-EvergreenResourceStrings`
-`Get-AdobeAcrobatReaderDC`
-`Get-CitrixAppLayeringFeed`
-`Get-CitrixApplicationDeliveryManagementFeed`
-`Get-CitrixEndpointManagementFeed`
-`Get-CitrixGatewayFeed`
-`Get-CitrixHypervisorFeed`
-`Get-CitrixLicensingFeed`
-`Get-CitrixReceiverFeed`
-`Get-CitrixSdwanFeed`
-`Get-CitrixVirtualAppsDesktopsFeed`
-`Get-CitrixWorkspaceApp`
-`Get-CitrixWorkspaceAppFeed`
-`Get-CitrixXenServerTools`
-`Get-ControlUpAgent`
-`Get-FileZilla`
-`Get-GoogleChrome`
-`Get-Greenshot`
-`Get-LibreOffice`
-`Get-MicrosoftPowerShellCore`
-`Get-MicrosoftSsms`
-`Get-MicrosoftVisualStudioCode`
-`Get-MozillaFirefox`
-`Get-NotepadPlusPlus`
-`Get-OracleVirtualBox`
-`Get-PaintDotNet`
-`Get-VideoLanVlcPlayer`
-`Get-VMwareTools`
-`Get-Zoom`
+* Refactored into a PowerShell module to simplify coding and publishing to the PowerShell Gallery.
