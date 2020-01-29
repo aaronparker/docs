@@ -35,3 +35,5 @@
     * [Pruning the Profile Container](./FSLogix/CONTAINER.md)
     * [Build Profile Container Redirections.xml](./FSLogix/REDIRECTIONS.md)
     * [Find App Registry keys for App Masking](./FSLogix/APPKEYS.md)
+* [Evergreen](./Evergreen/README.md)
+    * [Change log](./Evergreen/change-log.md)
