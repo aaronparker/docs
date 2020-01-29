@@ -37,4 +37,5 @@
     * [Find App Registry keys for App Masking](./FSLogix/APPKEYS.md)
 * [Evergreen](./Evergreen/README.md)
     * [Install the Module](./Evergreen/install.md)
+    * [Examples](./Evergreen/examples.md)
     * [Change log](./Evergreen/change-log.md)
