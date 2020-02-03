@@ -1,5 +1,11 @@
 # Change log
 
+## v2.0.168
+
+* Updates the manifest for VcRedist 2019 `14.24.28127.4`
+* Updates to `Import-VcConfigMgrApplication` for UNC path and ConfigMgr module validation
+* Updates to `Export-VcManifest` to export entire manifest. Working toward automatic updates to the manifest with new VcRedist releases
+
 ## v2.0.163
 
 * Update the manifest for VcRedist 2019 version `14.23.27820.0` for Visual Studio 2019 16.3
