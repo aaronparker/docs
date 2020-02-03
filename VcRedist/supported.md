@@ -1,6 +1,6 @@
 # Supported Platforms
 
-## Windows Verisons
+## Windows Versions
 
 VcRedist supports installing the Visual C++ Redistributables on Windows 10 (64-bit) and Windows Server 2016 / 2019 (GUI and Server Core). Basic testing has been done on earlier versions of Windows; however, only best effort support is provided for 32-bit and / or downlevel operating systems.
 
