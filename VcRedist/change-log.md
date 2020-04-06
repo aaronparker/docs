@@ -1,5 +1,12 @@
 # Change log
 
+## v2.0.174
+
+* Add `$ProgressPreference = "SilentlyContinue"` to `Save-VcRedist for faster downloads
+* Update manifest to support VcRedist 2019 `14.25.28508.3`
+* Update module description
+* Export variable `VcManifest` for future use
+
 ## v2.0.168
 
 * Updates the manifest for VcRedist 2019 `14.24.28127.4`
