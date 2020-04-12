@@ -1,5 +1,14 @@
 # Change log
 
+## v2.0.181
+
+* `Import-MdtModule` - simplify code and ensure exception is thrown when module cannot be loaded
+* `Get-InstalledVcRedist` - update filtering for Redistributables and update code style
+* `Save-VcRedist.ps1` - update inline help, remove use of `Start-BitsTransfer` (now only uses `Invoke-WebRequest`), force use of TLS 1.2, fix reference to `ProxyCredential` parameter, fix output of downloaded VcRedists to the pipeline
+* `Update-VcMdtApplication.ps1` - ensure correct path in verbose output, fix issue with VcRedist executables not being copied to the MDT deployment share
+* `Update-VcMdtBundle` - update inline help, update approach to finding the existing VcRedist bundle to fix an issue where the bundle isn't in the default location, update approach to updating bundle properties
+* Update Pester tests for public functions
+
 ## v2.0.174
 
 * Add `$ProgressPreference = "SilentlyContinue"` to `Save-VcRedist for faster downloads

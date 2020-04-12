@@ -13,7 +13,6 @@ Save-VcRedist downloads the Redistribuables and returns the array passed from Ge
 
 ### Optional parameters
 
-* `ForceWebRequest` - Forces the use of Invoke-WebRequest over Start-BitsTransfer. Useful for when running Server Core or under PowerShell Core
 * `Proxy` - Specify a proxy server to use when downloading the Visual C++ Redistributables
 * `ProxyCredential` - If the proxy server requires authentication, credentials can be specified as an PSCredential object
 
@@ -29,3 +28,22 @@ Get-VcList | Save-VcRedist -Path C:\Temp\VcRedist
 Redistribuables are downloaded into the target folder:
 
 ![Microsoft Visual C++ Redistributables installed on the local PC](https://raw.githubusercontent.com/aaronparker/docs/master/images/VcRedist-Folder.PNG)
+
+Pass the list of 2013 and 2019 x86 supported Visual C++ Redistributables to Save-VcRedist and downloads the Redistributables to C:\Redist.
+
+```powershell
+$VcList = Get-VcList -Release 2013, 2019 -Architecture x86
+Save-VcRedist -VcList $VcList -Path C:\Redist
+```
+
+Download the 2010, 2012, 2013, and 2019 Visual C++ Redistributables to C:\Redist.
+
+```powershell
+Save-VcRedist -VcList (Get-VcList -Release 2010, 2012, 2013, 2019) -Path C:\Redist
+```
+
+Downloads the 2010, 2012, 2013, and 2019 Visual C++ Redistributables to C:\Redist using the proxy server 'proxy.domain.local'
+
+```powershell
+Save-VcRedist -VcList (Get-VcList -Release 2010, 2012, 2013, 2019) -Path C:\Redist -Proxy proxy.domain.local
+```
