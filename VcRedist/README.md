@@ -1,8 +1,8 @@
 # Introduction
 
-VcRedist is a PowerShell module for managing the lifecycle of the [Microsoft Visual C++ Redistributables](https://support.microsoft.com/en-au/help/2977003/the-latest-supported-visual-c-downloads).
+VcRedist is a PowerShell module for lifecycle management of the [Microsoft Visual C++ Redistributables](https://support.microsoft.com/en-au/help/2977003/the-latest-supported-visual-c-downloads).
 
-The module enables the download of the Redistributables for installing locally, or creating applications in the Microsoft Deployment Toolkit and System Center Configuration Manager to install the Redistributables for reference images or operating system deployments. All downloads are direct from the Microsoft Downloads site and are therefore only from a trusted source.
+VcRedist downloads the supported (and unsupported) Redistributables, for local install, master image deployment or importing as applications into the Microsoft Deployment Toolkit or Microsoft Endpoint Configuration Manager. Supports passive and silent installs and uninstalls of the Visual C++ Redistributables.
 
 ## Why
 
