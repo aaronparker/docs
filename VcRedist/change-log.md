@@ -1,5 +1,9 @@
 # Change log
 
+## v2.0.183
+
+* Fixes an issue where `Get-InstalledVcRedist` was not returning installed VcRedists due to incorrect RegEx match. Improve code that filters output with the `ExportAll` parameter
+
 ## v2.0.181
 
 * `Import-MdtModule` - simplify code and ensure exception is thrown when module cannot be loaded
