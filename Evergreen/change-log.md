@@ -1,5 +1,56 @@
 # Change Log
 
+## 2004.141
+
+* Adds private function `ConvertFrom-SourceForgeReleasesJson` to convert JSON release info from SourceForge projects and simplify adding additional functions that pull release info from SourceForge projects. Release information is limited by what's provided from SourceForge
+* Updates `Get-WinMerge` to use `ConvertFrom-SourceForgeReleasesJson`
+* Adds `Get-7Zip`, `Get-PDFForgePDFCreator`
+* Renames `-TrustCertificate` parameter in private function `Invoke-WebContent` to `-SkipCertificateCheck` to align with `-SkipCertificateCheck` available in '`Invoke-WebRequest` in PowerShell Core
+* Enables `-SkipCertificateCheck` for both PowerShell Core and Windows PowerShell in `Invoke-WebContent`. Previously supported Windows PowerShell only
+* Improves code in `Invoke-WebContent`
+* Adds `-Uri` parameter validation in `Get-GitHubRelease` to ensure valid GitHub URLs are passed to the function
+* Sets function global `ErrorPreference` to `Stop` to ensure better exception output from functions in the event of failures
+
+## 2004.139
+
+* Adds `ConvertFrom-GitHubReleasesJson` to standardise queries to GitHub repositories
+* Updates `Get-Atom`, `Get-BISF`, `Get-GitForWindows`, `Get-Greenshot`, `Get-MicrosoftPowerShellCore`, `Get-OpenJDK`, `Get-ShareX`, `Get-mRemoteNG` to use `ConvertFrom-GitHubReleasesJson`
+* Updates RegEx for version matching strings for `BISF`, `GitForWindows`, `ShareX`
+* Adds `Get-Architecture` and `Get-Platform` private functions
+* Adds `Get-GitHubRelease` to enable returning version and downloads from any GitHub repository. Use to get versions of applications on GitHub that aren't yet included in `Evergreen`
+
+## 2004.134
+
+* Fixes an issue where `Get-Zoom` was still returning a URI to downloads with query strings attached.
+
+## 2004.133
+
+* Updates URL to current version for `TeamViewer`. New URL requires different approach to query
+* Adds `Invoke-SystemNetRequest` that uses `System.Net.WebRequest` to make a HTTP request and return response
+* Updates `Get-TeamViewer` to use `Invoke-SystemNetRequest` to retrieve version from updated URL. Updates code to return version and download URL as a result
+* Updates `Get-Zoom` to use `Resolve-Uri` to follow download URLs and find version number. `Get-Zoom` now returns more versions numbers for Zoom downloads than previously. Updates RegEx approach that returns version numbers from download URLs
+
+## 2004.126
+
+* Adds back `Get-FileZilla` using the application update API. Currently returns only the 64-bit version of FileZilla for Windows.
+
+## 2004.125
+
+* Adds `Get-MicrosoftOneDrive`. We recommend validating versions returned by this function with [OneDrive release notes](https://support.office.com/en-us/article/onedrive-release-notes-845dcf18-f921-435e-bf28-4e24b95e5fc0)
+* Removes `Get-FileZilla` until a more robust process to return versions and download can be created
+* Removes progress bar for `Invoke-WebRequest` for faster query of APIs
+* Updates `Get-NotepadPlusPlus` to use the GitHub releases API to find new versions as the application update API can be out of date
+
+## 2002.120
+
+* Updates `Get-GitForWindows` to return correct version number
+* Updates `Get-Zoom` to return version number correctly
+* Adds `Resolve-Uri` with a new method of returning redirects from 301/302 via @iainbrighton
+
+## 2001.117
+
+* Updates `Get-FileZilla` to return 32-bit and 64-bit download URIs
+
 ## 2001.110
 
 * Adds `Get-MicrosoftTeams`
