@@ -42,6 +42,3 @@ This module is maintained by the following community members
 ## Versioning
 
 The module uses a version notation that follows: YearMonth.Build. It is expected that the module will have changes on a regular basis, so the version numbering is intended to make it easy to understand when the last update was made.
-
----
-leaf by The Icon Z from the Noun Project

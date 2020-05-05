@@ -1,10 +1,5 @@
 # LatestUpdate
 
-[![Build status][appveyor-badge]][appveyor-build]
-[![GitHub Release][github-release-badge]][github-release]
-[![PowerShell Gallery][psgallery-badge]][psgallery]
-[![PowerShell Gallery Version][psgallery-version-badge]][psgallery]
-
 ## About
 
 A module for retrieving the latest Windows 10 / Windows Server 2016, 2019, Semi Annual Channel Cumulative Updates, Servicing Stack Updates, .NET Framework Cumulative Updates, the Monthly Rollups for 8.1 / 7 (and Windows Server 2012 R2, 2008 R2) and the latest Adobe Flash Player updates from the Microsoft Update History page. In addition, the module provides a function for downloading the update files locally.
@@ -37,12 +32,3 @@ This module uses code and inspiration from these sources:
 
 * [Keith Garner](https://twitter.com/keithga1) - [gist](https://gist.github.com/keithga/1ad0abd1f7ba6e2f8aff63d94ab03048)
 * [Nickolaj Andersen](https://twitter.com/NickolajA) - [script](https://github.com/SCConfigMgr/ConfigMgr/blob/master/Software%20Updates/Invoke-MSLatestUpdateDownload.ps1)
-
-[appveyor-badge]: https://ci.appveyor.com/api/projects/status/s4g24puifpegq7kf/branch/master?svg=true&logo=PowerShell&style=flat-square
-[appveyor-build]: https://ci.appveyor.com/project/aaronparker/latestupdate/
-[psgallery-badge]: https://img.shields.io/powershellgallery/dt/latestupdate.svg?logo=PowerShell&style=flat-square
-[psgallery]: https://www.powershellgallery.com/packages/latestupdate
-[psgallery-version-badge]: https://img.shields.io/powershellgallery/v/LatestUpdate.svg?logo=PowerShell&style=flat-square
-[psgallery-version]: https://www.powershellgallery.com/packages/latestupdate
-[github-release-badge]: https://img.shields.io/github/release/aaronparker/LatestUpdate.svg?logo=github&style=flat-square
-[github-release]: https://github.com/aaronparker/LatestUpdate/releases/latest
