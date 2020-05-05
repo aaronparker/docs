@@ -1,5 +1,49 @@
 # Change Log
 
+## 2005.176
+
+* Fixes an issue where `Get-MicrosoftEdge` was only returning ARM64 downloads
+* Updates `Get-MicrosoftEdge` to only return downloads for the Enterprise ring (removed Consumer ring)
+* Fixes an issue with `Get-MicrosoftTeams` where is was returning an incorrect download URL
+
+## 2005.172
+
+* Updates `Get-MicrosoftEdge` to correctly return the latest version and policy files for the Enterprise ring
+* Updates output for private function `Resolve-Uri` with addition properties
+* Updates `Get-FoxitReader`, `Get-MicrosoftFSLogixApps`, and `Get-MicrosoftSsms` to use `Resolve-Uri` instead of `Resolve-RedirectedUri` for improved performance
+* Updates `Get-LibreOffice` to retrieve latest version from the update API instead of page scraping
+* Updates private function `ConvertTo-DateTime` with improvements in returning localised date (so the rest of us don't need to be stuck with US date formats)
+* Aligns `Get-NotepadPlusPlus` with private function `ConvertFrom-GitHubReleasesJson` to return GitHub release data
+* Fixes output in `Get-VMwareTools` to ensure correct version and download URL are returned
+* Adds date to output in several functions
+* General code and inline help improvements
+* Adds module icon for display in the PowerShell Gallery
+
+## 2004.161
+
+* Updates `Get-MicrosoftEdge` with the following:
+    * Returns Edge for Windows only
+	* Removes `-Channels` and `-Platforms` parameters. Filter output with `Where-Object` instead
+	* Returns these channels and downloads only `Stable`, `Beta`, `EdgeUpdate`, and `Policy` (administrative templates)
+	* Filters and returns only the latest version of each of the above channels and downloads
+	* Output includes `Channel` (Stable, Beta etc.) and `Release` (Enterprise, Consumer) to enable filtering
+
+## 2004.157
+
+* Adds `Get-MicrosoftWvdInfraAgent`
+* Adds `Get-dnGrep`
+* Recode of `Get-PaintDotNet` (or how did I not know about `ConvertFrom-StringData` before?)
+* To simplify output, removes Linux, macOS output from `Get-CitrixWorkspaceApp`, `Get-GoogleChrome`, `Get-OracleVirtuaBox`, `Get-LibreOffice`, `Get-MicrosoftVisualStudioCode`, `Get-MozillaFirefox`, `Get-OracleVirtualBox`, `Get-TeamViewer`
+* Updates RegEx method to extract version across various functions to simplify code
+* Splits Pester tests for Public functions to allow for faster local testing
+
+## 2004.147
+
+* Adds `Get-Handbrake`, `Get-KeePass`, `Get-OpenShellMenu`, `Get-VastLimitsUberAgent`, `Get-WinSCP`
+* Removes macOS and Linux output from `Get-AdobeAcrobatReader`, `Get-LibreOffice`
+* Filters macOS and Linux output from private function `ConvertFrom-GitHubReleasesJson.ps1`
+* Fixes spaces in private function `ConvertFrom-SourceForgeReleasesJson`
+
 ## 2004.141
 
 * Adds private function `ConvertFrom-SourceForgeReleasesJson` to convert JSON release info from SourceForge projects and simplify adding additional functions that pull release info from SourceForge projects. Release information is limited by what's provided from SourceForge
