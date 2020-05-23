@@ -1,5 +1,11 @@
 # Change log
 
+## v2.0.203
+
+* Update for `VcRedist 2019` version `14.26.28720`
+* Automate updating the `VcRedist` manifest for new `2019` releases
+* Update functions with new evaluations from `PSScriptAnalyzer`
+
 ## v2.0.183
 
 * Fixes an issue where `Get-InstalledVcRedist` was not returning installed VcRedists due to incorrect RegEx match. Improve code that filters output with the `ExportAll` parameter
