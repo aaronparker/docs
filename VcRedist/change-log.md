@@ -1,8 +1,20 @@
 # Change log
 
+## v2.0.214
+
+* Update VcRedist `2019` to `14.27.29112.0`
+* Update VcRedist `2017` to `14.16.27033.0`
+* Update `Import-VcConfigMgrApplication` to support spaces in paths with ROBOCOPY
+* Rename `Master` branch to `Main`
+
+## v2.0.209
+
+* Update VcRedist `2019` to `14.27.29016.0`
+* Update `Uninstall-VcRedist` to ensure a VcRedist uninstall does not trigger a reboot
+
 ## v2.0.203
 
-* Update for `VcRedist 2019` version `14.26.28720`
+* Update for VcRedist `2019` version `14.26.28720`
 * Automate updating the `VcRedist` manifest for new `2019` releases
 * Update functions with new evaluations from `PSScriptAnalyzer`
 
