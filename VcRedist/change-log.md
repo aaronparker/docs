@@ -1,5 +1,12 @@
 # Change log
 
+## v2.0.218
+
+* Update VcRedist `2019` to `14.28.29325.2`
+* Fix an issue where `Save-VcRedist` was not returning downloaded VcRedists details to the pipeline
+* Adds private function `Get-DigitalSignature` to return digital signature / certificate info from VcRedist installers via `Get-FileMetadata`
+
+
 ## v2.0.214
 
 * Update VcRedist `2019` to `14.27.29112.0`
