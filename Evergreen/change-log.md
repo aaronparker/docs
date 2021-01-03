@@ -1,10 +1,88 @@
 # Change Log
 
+## 2012.242
+
+* Adds `Get-AdobeAcrobatProDC`, `Get-TelerikFiddlerEverywhere`, `Get-1Password`
+* Adds Windows Installer downloads ouput to `Get-FoxitReader`
+* Updates `Get-MicrosoftSsms` to query an evergreen update URL to gather new versions from the product releases feed
+  * NOTE: the version of SSMS in the releases feed is not the actual current release version - we can only work with what the feed returns
+  * See #82
+* Updates `Get-MicrosoftSsms` to output all supported languages for downloads - filter output on the `Language` property
+* Updates `Get-MozillaFirefox` to return both Exe and Msi versions of the Firefox installer
+* Adds SHA256 hash property to output from `Get-MicrosoftVisualStudioCode`
+* Fixes an issue with the `URI` output in `Get-Cyberduck` that was returning an additional `/` character
+* Refactors private function to query the GitHub releases API (`Get-GitHubRepoRelease`, replacing `ConvertFrom-GitHubReleasesJson`) to use `Invoke-RestMethod` for simpler public functions used to return GitHub releases
+* Updates the following functions to use `Get-GitHubRepoRelease` - `Get-Atom`, `Get-AdoptOpenJdk`, `Get-BISF`, `Get-dnGrep`, `Get-GitForWindows`, `Get-GitHubRelease`, `Get-Greenshot`, `Get-Handbrake`, `Get-MicrosoftPowerShellCore`, `Get-MicrosoftPowerToys`, `Get-mRemoteNG`, `Get-NotepadPlusPlus`, `Get-OpenJDK`, `Get-OpenShellMenu`, `Get-ShareX`, `Get-Win32OpenSSH`, `Get-WixToolSet`
+* Updates manifest for a number of functions to better align with an updated standard structure (see `Manifests/Template.json`)
+* Updates private function `ConvertTo-DateTime` to better handle date/time format conversion. Still some improvements to be made here
+* BREAKING CHANGES:
+  * Updates `Get-OpenJDK` to return only Msi releases and removes Debug, zip etc. On-going improvements - see #76
+  * Removes Beta and Snapshots releases from `Get-Cyberduck`
+  * Removes Debug releases from `Get-Greenshot`
+  * Removes SafeMode releases from `Get-Handbrake`
+  * Removes Beta channel and ARM64 releases from `Get-MicrosoftEdge`
+  * Removes Zip format releases from `Get-MicrosoftPowerShellCore`
+  * Removes Symbols releases from `Get-Win32OpenSSH`
+
+## 2012.225
+
+* Adds `Get-Microsoft.NET` (.NET 5.0 and .NET Core), `Get-Win32OpenSSH`, `Get-MicrosoftPowerToys`
+* Updates `Get-OpenJDK` to return all releases. Further filtering will be added in the future per #76
+* Updates `Get-MozillaFirefox` to resolve download URIs for both EXE and MSI Firefox installers and updates output with additional properties (`Architecture`, `Channel` and `Type`) #83.
+  * Note: this introduces a breaking change - the `-Platform` switch has been removed, you will need to filter the output on the `Architecture` property
+* Updates `Get-AdobeAcrobatReader` to return additional languages #84. Note that Reader DC does not provide the latest version for all languages - it may be a better approach to use the [MUI version of the Reader installer](https://helpx.adobe.com/au/reader/faq.html#Enterprisedeployment) if your language is supported
+
+## 2010.219
+
+* Update `Get-FileZilla` to fix invalid download URI returned from the FileZilla update feed. Fix #75
+* Update `Get-Cyberduck` to remove code that replaces `//` with `/`. Returns unfiltered URL from Cyberduck update feed. Fix #75
+
+## 2009.218
+
+* Fix `Get-FoxitReader` with changes to download page in `FoxitReader.json`. Address #72
+* Fix `Get-Zoom` with changes to resolved URIs. Address #73
+* Update `MicrosoftWvdRtcService.json` to new version of the Microsoft Remote Desktop WebRTC Redirector Service
+* Update `Resolve-Uri` with additional verbose output
+
+## 2006.212
+
+* Renames `Get-CitrixXenServerTools` to `Get-CitrixVMTools` and adds `Get-CitrixXenServerTools` alias
+* Updates `Get-CitrixVMTools` with new release URL for v7 updates and add v9 updates
+* Updates install command lines for `Get-CitrixVMTools`
+* Adds `Get-AdoptOpenJDK` - closes #69
+
+## 2006.207
+
+* Fix path in downloads from apps hosted on Source Forge returned in `ConvertFrom-SourceForgeReleasesJson.ps1`. Fixes #67
+* Update `Get-MozillaFirefox` to return Extended Support Release as well as Current Release. Address #61
+* Update manifests to address #57 #54 #53 #52
+
+## 2006.203
+
+* Removes Size property from `Get-FoxitReader` because this isn't being gathered consistently for each download
+* Updates version / releases feed for `Get-MicrosftSsms` to ensure the current version is returned
+* Updates the way private function `ConvertFrom-SourceForgeReleasesJson` returns available downloads from SourceForge
+* Updates `Get-7zip`, `Get-KeePass`, `Get-PDFForgePDFCreator` and `Get-WinMerge` to support new approach to retrieving SourceForge downloads
+
+## 2005.190
+
+* Adds `Get-MicrosoftWvdBootLoader` - Get the filename and download URL for the Microsoft Windows Virtual Desktop Remote Desktop Boot Loader
+* Updates `Get-FoxitReader` to sort release versions correctly and return latest (v10.x)
+
+## 2005.187
+
+* Adds `Get-MicrosoftWvdRtcService` - returns the version, filename and download for the Microsoft Remote Desktop WebRTC Redirector service for Windows Virtual Desktop
+
+## 2005.183
+
+* Updates `Get-VMwareTools` to return the very latest version with updated download URL
+* Adds `Get-WixToolset`
+
 ## 2005.176
 
 * Fixes an issue where `Get-MicrosoftEdge` was only returning ARM64 downloads
 * Updates `Get-MicrosoftEdge` to only return downloads for the Enterprise ring (removed Consumer ring)
-* Fixes an issue with `Get-MicrosoftTeams` where is was returning an incorrect download URL
+* Fixes an issue with `Get-MicrosoftTeams` where it was returning an incorrect download URL
 
 ## 2005.172
 
@@ -22,11 +100,11 @@
 ## 2004.161
 
 * Updates `Get-MicrosoftEdge` with the following:
-    * Returns Edge for Windows only
-	* Removes `-Channels` and `-Platforms` parameters. Filter output with `Where-Object` instead
-	* Returns these channels and downloads only `Stable`, `Beta`, `EdgeUpdate`, and `Policy` (administrative templates)
-	* Filters and returns only the latest version of each of the above channels and downloads
-	* Output includes `Channel` (Stable, Beta etc.) and `Release` (Enterprise, Consumer) to enable filtering
+  * Returns Edge for Windows only
+  * Removes `-Channels` and `-Platforms` parameters. Filter output with `Where-Object` instead
+  * Returns these channels and downloads only `Stable`, `Beta`, `EdgeUpdate`, and `Policy` (administrative templates)
+  * Filters and returns only the latest version of each of the above channels and downloads
+  * Output includes `Channel` (Stable, Beta etc.) and `Release` (Enterprise, Consumer) to enable filtering
 
 ## 2004.157
 
