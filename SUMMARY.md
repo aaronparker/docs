@@ -18,9 +18,6 @@
   * [Change log](./VcRedist/change-log.md)
   * [Understanding VcRedist Versioning](./VcRedist/versioning.md)
 * [Evergreen](./Evergreen/README.md)
-  * [Install the Module](./Evergreen/install.md)
-  * [Examples](./Evergreen/examples.md)
-  * [Change log](./Evergreen/change-log.md)
 * FSLogix
   * [Keeping User Profile size in check](./FSLogix/PROFILE.md)
   * [Pruning the Profile Container](./FSLogix/CONTAINER.md)
