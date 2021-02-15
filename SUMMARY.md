@@ -18,22 +18,5 @@
   * [Change log](./VcRedist/change-log.md)
   * [Understanding VcRedist Versioning](./VcRedist/versioning.md)
 * [Evergreen](./Evergreen/README.md)
-* FSLogix
-  * [Keeping User Profile size in check](./FSLogix/PROFILE.md)
-  * [Pruning the Profile Container](./FSLogix/CONTAINER.md)
-  * [Build Profile Container Redirections.xml](./FSLogix/REDIRECTIONS.md)
-  * [Find App Registry keys for App Masking](./FSLogix/APPKEYS.md)
-* [LatestUpdate](./LatestUpdate/README.md)
-  * [Supported Platforms](./LatestUpdate/SUPPORTED.md)
-  * [Installing the module](./LatestUpdate/INSTALL.md)
-  * Usage
-    * [Get Cumulative updates](./LatestUpdate/GET-LATEST.md)
-    * [Get Servicing Stack updates](./LatestUpdate/GET-STACK.md)
-    * [Get Adobe Flash updates](./LatestUpdate/GET-FLASH.md)
-    * [Get .NET Framework Cumulative updates](./LatestUpdate/GET-NET.md)
-    * [Get Monthly Rollup updates](./LatestUpdate/GET-MONTHLY.md)
-    * [Get Windows Defender updates](./LatestUpdate/GET-DEFENDER.md)
-    * [Downloading the updates](./LatestUpdate/DOWNLOAD.md)
-  * [Change log](./LatestUpdate/CHANGE-LOG.md)
-  * [Understanding LatestUpdate versioning](./LatestUpdate/VERSION.md)
+* [FSLogix](./FSLogix/README.md)
   
