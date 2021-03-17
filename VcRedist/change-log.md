@@ -1,5 +1,16 @@
 # Change log
 
+## v2.0.231
+
+* Updates the VcRedist manifest for VcRedist 2019 `14.28.29913.0`
+* Adds the `UninstallKey` property to the VcRedist manifest for use with adding detection methods for 32-bit or 64-bit Registry keys
+* Adds the `UninstallKey` to `Get-InstalledVcRedist` to assist with determining application detection methods (e.g. with ConfigMgr, Intune etc.)
+* Updates `Import-VcConfigMgrApplication` with:
+  * Updates application name in the format: `Visual C++ Redistributable 2010 x64 10.0.40219.325`
+  * Updates application detection method to detect target Registry key (in the correct 32-bit or 64-bit Registry)
+  * Adds parameter `-NoCopy` to allow import of VcRedist applications into without needing to copy content to the ConfigMgr deployment share
+* Various clean-up of code and spelling
+
 ## v2.0.218
 
 * Update VcRedist `2019` to `14.28.29325.2`
