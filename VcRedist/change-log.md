@@ -1,5 +1,17 @@
 # Change log
 
+## 3.0.238
+
+* Updates the major version to 3 due to the introduction of a breaking change
+* Changes the folder structure used when downloading VcRedists and importing into MDT or ConfigMgr. Structure is now: `Release\Version\Architecture`. For example: `2019\14.28.29913.0\x64`. This change has been introduced to allow importing VcRedist installers into ConfigMgr and Microsoft Intune as distinct application versions that can be used to supersede earlier versions and upgrade target PCs
+* Updates `Import-VcMdtApplication` to import VcRedist applications with new folder structure and naming convention. Applications will be created in the following format: `Visual C++ Redistributable Release Architecture Version`, for example: `Visual C++ Redistributable 2019 x86 14.28.29913.0`
+* Validates previous changes in `Import-VcConfigMgrApplication` that import VcRedist applications with new folder structure and naming convention. Applications will be created in the following format: `Visual C++ Redistributable Release Architecture Version`, for example: `Visual C++ Redistributable 2019 x86 14.28.29913.0`
+* Fixes an issue in `Import-VcConfigMgrApplication` when copying the VcRedist setup executable into the ConfigMgr deployment share via robocopy that reported an error even where it had successfully copied the target executable. Addresses issue: [#63](https://github.com/aaronparker/VcRedist/issues/63)
+* Updates `Import-VcConfigMgrApplication` to copy the VcRedist setup executables individually instead of copying the entire VcRedist download folder (saved with `Save-VcRedist`). This allows for individual installers to be imported with only the content required for each version
+* Adds parameter `-NoProgress` to `Save-VcRedist` to allow for suppressing `Invoke-WebRequest` download progress while using the `-Verbose` parameter. Download speed if affected when `Invoke-WebRequest` displays the download progress
+* Updates inline help across various functions
+* Various clean-up of code for robustness, error checking and spelling
+
 ## v2.0.231
 
 * Updates the VcRedist manifest for VcRedist 2019 `14.28.29913.0`
